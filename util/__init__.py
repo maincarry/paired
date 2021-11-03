@@ -15,6 +15,9 @@ from .filewriter import FileWriter
 from envs.wrappers import ParallelAdversarialVecEnv, VecMonitor, \
     VecNormalize, VecPreprocessImageWrapper, TimeLimit
 
+from scenic.simulators.gfootball.rl.gfScenicEnv_v2 import GFScenicEnv_v2
+from scenic.simulators.gfootball.utilities.scenic_helper import buildScenario
+
 
 class DotDict(dict):
     __getattr__ = dict.__getitem__
@@ -99,22 +102,60 @@ def is_discrete_actions(env, adversary=False):
     else:
         return env.action_space.__class__.__name__ == 'Discrete'
 
-def _make_env(args):
+# added process_num for gfootball
+def _make_env(args, process_num=None):
     env_kwargs = {'seed': args.seed}
     if args.singleton_env:
         env_kwargs.update({
             'fixed_environment': True})
 
+    if args.env_name == "gfootball":
+        # TODO: need to make adv env
+        assert isinstance(process_num, int)
+        env_kwargs['iprocess'] = process_num
+
+
     env = gym_make(args.env_name, **env_kwargs)
     return env
+
+def create_single_gfootball_scenic_environment(iprocess, scenario_file):
+    print("Scenic Environment: ", scenario_file)
+
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+
+    scenario = buildScenario(scenario_file)
+    env = GFScenicEnv_v2(initial_scenario=scenario, gf_env_settings=gf_env_settings, rank=iprocess)
+    return env
+
+
 
 def create_parallel_env(args, adversary=True):
     is_multigrid = args.env_name.startswith('MultiGrid')
     is_minihack = args.env_name.startswith('MiniHack')
+    is_gfootball = args.env_name.startswith('gfootball')
 
-    make_fn = lambda: _make_env(args)
+    # need a warpper to fill in process_num
+    def make_fn_generator(i):
+        return lambda: _make_env(args, i)
 
-    venv = ParallelAdversarialVecEnv([make_fn]*args.num_processes, adversary=adversary)
+    # make_fn = lambda: _make_env(args)
+    venv_make_fn_list = [make_fn_generator(i) for i in range(args.num_processes)]
+
+    venv = ParallelAdversarialVecEnv(venv_make_fn_list, adversary=adversary)
     venv = VecMonitor(venv=venv, filename=None, keep_buf=100)
     venv = VecNormalize(venv=venv, ob=False, ret=args.normalize_returns)
 
@@ -132,7 +173,7 @@ def create_parallel_env(args, adversary=True):
     venv = VecPreprocessImageWrapper(venv=venv, obs_key=obs_key, 
         transpose_order=transpose_order, scale=scale)
 
-    if is_multigrid:
+    if is_multigrid or is_gfootball:
         ued_venv = venv
 
     if args.singleton_env:

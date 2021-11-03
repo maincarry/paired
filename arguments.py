@@ -180,6 +180,16 @@ parser.add_argument(
     default=None,
     help="Clip sparse rewards")
 
+
+# gfootball env
+parser.add_argument(
+    '--scenario_file',
+    type=str,
+    default='/home/carla_challenge/rl/scenic4rl/training/gfrl/_scenarios/grf/empty_goal.scenic',
+    help='path to Scenic script')
+
+
+
 # UED arguments.
 parser.add_argument(
     '--ued_algo',

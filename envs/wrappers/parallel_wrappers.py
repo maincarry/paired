@@ -78,6 +78,8 @@ def worker(remote, parent_remote, env_fn_wrappers):
                 else:
                     remote.send([attr for attr in attrs])
             else:
+                print(f"Not found command: {cmd}")
+                # TODO processed_action_dim
                 raise NotImplementedError
     except KeyboardInterrupt:
         print('SubprocVecEnv worker: got KeyboardInterrupt')

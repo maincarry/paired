@@ -75,6 +75,40 @@ def model_for_minihack_agent(
     return model
 
 
+def model_for_gfootball_agent(
+        env,
+        agent_type='agent',
+        recurrent_arch=None,
+        recurrent_hidden_size=256,
+    ):
+    if 'adversary_env' in agent_type:
+        adversary_observation_space = env.adversary_observation_space
+        adversary_action_space = env.adversary_action_space
+        adversary_max_timestep = adversary_observation_space['time_step'].high[0] + 1
+        adversary_random_z_dim = adversary_observation_space['random_z'].shape[0]
+
+        model = MiniHackAdversaryNetwork(
+                    observation_space=adversary_observation_space,
+                    action_space=adversary_action_space,
+                    recurrent_arch=recurrent_arch,
+                    scalar_fc=10,   
+                    scalar_dim=adversary_max_timestep,
+                    random_z_dim=adversary_random_z_dim,
+                    obs_key='image')
+    else:
+        # normal agent
+        observation_space = env.observation_space
+        action_space = env.action_space
+
+        model = NetHackAgentNet(
+            observation_shape=observation_space,
+            num_actions = action_space.n,
+            rnn_hidden_size = recurrent_hidden_size
+        )
+
+    return model
+
+
 def model_for_env_agent(
     env_name,
     env,
@@ -105,6 +139,9 @@ def model_for_env_agent(
             agent_type=agent_type,
             recurrent_arch=recurrent_arch,
             recurrent_hidden_size=recurrent_hidden_size)
+    elif env_name.startswith('gfootball'):
+        pass
+        # TODO
     else:
         raise ValueError(f'Unsupported environment {env_name}.')
 

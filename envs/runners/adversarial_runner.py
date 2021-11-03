@@ -404,6 +404,7 @@ class AdversarialRunner(object):
             self.num_updates += 1
 
         # === LOGGING ===
+        # TODO: return env stats
         stats = self._get_env_stats(agent_info, adversary_agent_info)
         stats.update({
             'mean_env_return': env_return.mean().item(),
