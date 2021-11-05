@@ -128,6 +128,7 @@ class AdversarialEnv(scenicenv.GFEnv):
     """
     return self.reset_agent()
 
+  # TODO: required but what is this for???
   @property
   def processed_action_dim(self):
     return 1

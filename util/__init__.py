@@ -110,7 +110,6 @@ def _make_env(args, process_num=None):
             'fixed_environment': True})
 
     if args.env_name == "gfootball":
-        # TODO: need to make adv env
         assert isinstance(process_num, int)
         env_kwargs['iprocess'] = process_num
 
@@ -118,28 +117,28 @@ def _make_env(args, process_num=None):
     env = gym_make(args.env_name, **env_kwargs)
     return env
 
-def create_single_gfootball_scenic_environment(iprocess, scenario_file):
-    print("Scenic Environment: ", scenario_file)
+# def create_single_gfootball_scenic_environment(iprocess, scenario_file):
+#     print("Scenic Environment: ", scenario_file)
 
-    gf_env_settings = {
-        "stacked": True,
-        "rewards": "scoring",
-        "representation": 'extracted',
-        "players": [f"agent:left_players=1"],
-        "real_time": False,
-        "action_set": "default",
-        "dump_full_episodes": False,
-        "dump_scores": False,
-        "write_video": False,
-        "tracesdir": "dummy",
-        "write_full_episode_dumps": False,
-        "write_goal_dumps": False,
-        "render": False
-    }
+#     gf_env_settings = {
+#         "stacked": True,
+#         "rewards": "scoring",
+#         "representation": 'extracted',
+#         "players": [f"agent:left_players=1"],
+#         "real_time": False,
+#         "action_set": "default",
+#         "dump_full_episodes": False,
+#         "dump_scores": False,
+#         "write_video": False,
+#         "tracesdir": "dummy",
+#         "write_full_episode_dumps": False,
+#         "write_goal_dumps": False,
+#         "render": False
+#     }
 
-    scenario = buildScenario(scenario_file)
-    env = GFScenicEnv_v2(initial_scenario=scenario, gf_env_settings=gf_env_settings, rank=iprocess)
-    return env
+#     scenario = buildScenario(scenario_file)
+#     env = GFScenicEnv_v2(initial_scenario=scenario, gf_env_settings=gf_env_settings, rank=iprocess)
+#     return env
 
 
 
