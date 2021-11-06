@@ -82,6 +82,7 @@ class RolloutStorage(object):
         else: # Hack it to just store action prob for sampled action if continuous
             action_shape = action_space.shape[0]
             self.action_log_probs = torch.zeros(num_steps, num_processes, 1)
+            self.action_log_dist = None
 
         self.actions = torch.zeros(num_steps, num_processes, action_shape)
         if action_space.__class__.__name__ in ['Discrete', 'MultiDiscrete']:
@@ -120,7 +121,8 @@ class RolloutStorage(object):
         self.value_preds = self.value_preds.to(device)
         self.returns = self.returns.to(device)
         self.action_log_probs = self.action_log_probs.to(device)
-        self.action_log_dist = self.action_log_dist.to(device)
+        if self.action_log_dist is not None:
+            self.action_log_dist = self.action_log_dist.to(device)
         self.actions = self.actions.to(device)
         self.masks = self.masks.to(device)
         self.bad_masks = self.bad_masks.to(device)

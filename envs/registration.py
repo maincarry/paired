@@ -129,7 +129,7 @@ class EnvRegistry(object):
             raise error.Error('Attempted to look up malformed environment ID: {}. (Currently all IDs must be of the form {}.)'.format(id.encode('utf-8'), env_id_re.pattern))
 
         try:
-            print(self.env_specs)
+            # print(self.env_specs)
             return self.env_specs[id]
         except KeyError:
             # Parse the env name and check to see if it matches the non-version

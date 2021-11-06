@@ -154,16 +154,21 @@ class Evaluator(object):
 		return kwargs
 
 	@staticmethod
-	def make_env(env_name, **kwargs):
+	def make_env(env_name, process_num, **kwargs):
 		is_multigrid = env_name.startswith('MultiGrid')
 		is_minihack = env_name.startswith('MiniHack')
+		is_gfootball = env_name.startswith('gfootball')
 
 		if is_minihack:
 			env_kwargs = Evaluator._get_default_env_kwargs(env_name)
 			env = minihack_gym_make(env_name, 
 					**Evaluator._get_default_env_kwargs(env_name))
 		else:
-			env = gym_make(env_name)
+			if is_gfootball:
+				assert isinstance(process_num, int)
+				kwargs['iprocess'] = process_num
+
+			env = gym_make(env_name, **kwargs)
 
 		return env
 
@@ -171,6 +176,7 @@ class Evaluator(object):
 	def wrap_venv(venv, env_name, device='cpu'):
 		is_multigrid = env_name.startswith('MultiGrid') or env_name.startswith('MiniGrid')
 		is_minihack = env_name.startswith('MiniHack')
+		is_gfootball = env_name.startswith('gfootball')
 
 		transpose_order = [2, 0, 1]
 		scale = 10.0
@@ -183,6 +189,10 @@ class Evaluator(object):
 			transpose_order = None
 			scale = None
 			obs_key = ['glyphs', 'blstats']
+		else:
+			obs_key = None
+			transpose_order = None
+			scale = None
 
 		venv = VecMonitor(venv=venv, filename=None, keep_buf=100)	
 		venv = VecPreprocessImageWrapper(venv=venv, obs_key=obs_key, 
@@ -198,7 +208,11 @@ class Evaluator(object):
 
 		make_fn = []
 		for env_name in env_names:
-			make_fn = [lambda: Evaluator.make_env(env_name, **kwargs)]*self.num_processes
+			# need a warpper to fill in process_num; for eval we use an offset of 100
+			def make_fn_generator(a):
+				return lambda: Evaluator.make_env(env_name, a+100, **kwargs)
+
+			make_fn = [make_fn_generator(a) for a in range(self.num_processes)]
 			venv = ParallelAdversarialVecEnv(make_fn, adversary=False, is_eval=True)
 			venv = Evaluator.wrap_venv(venv, env_name, device=device)
 			self.venv[env_name] = venv
