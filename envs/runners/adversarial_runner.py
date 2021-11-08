@@ -58,7 +58,10 @@ class AdversarialRunner(object):
         }
 
         self.agent_rollout_steps = args.num_steps
-        self.adversary_env_rollout_steps = self.venv.adversary_observation_space['time_step'].high[0]
+        if args.env_name.startswith('gfootball'):
+            self.adversary_env_rollout_steps = 5  # TODO: change this
+        else:
+            self.adversary_env_rollout_steps = self.venv.adversary_observation_space['time_step'].high[0]
 
         self.is_dr = args.ued_algo == 'domain_randomization'
         self.is_training_env = args.ued_algo in ['minimax', 'paired', 'flexible_paired']
@@ -186,12 +189,17 @@ class AdversarialRunner(object):
 
         return stats
 
+    def _get_env_stats_gfootball(self, agent_info, adversary_agent_info):
+        return {}
+
     def _get_env_stats(self, agent_info, adversary_agent_info):
         env_name = self.args.env_name
         if env_name.startswith('MultiGrid'):
             stats = self._get_env_stats_multigrid(agent_info, adversary_agent_info)
         elif env_name.startswith('MiniHack'):
             stats = self._get_env_stats_minihack(agent_info, adversary_agent_info)
+        elif env_name.startswith('gfootball'):
+            stats = self._get_env_stats_gfootball(agent_info, adversary_agent_info)
         else:
             raise ValueError(f'Unsupported environment, {self.args.env_name}')
             
@@ -230,7 +238,7 @@ class AdversarialRunner(object):
                     obs_id, agent.storage.get_recurrent_hidden_state(step), agent.storage.masks[step])
 
                 if self.is_discrete_actions:
-                    action_log_prob = action_log_dist.gather(-1, action)
+                    action_log_prob = action_log_dist.gather(-1, action.type(torch.int64))
                 else:
                     action_log_prob = action_log_dist
 

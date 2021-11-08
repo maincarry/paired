@@ -172,7 +172,8 @@ if __name__ == '__main__':
             last_checkpoint_time = timer()
             logging.info(f"\nSaved checkpoint after update {j + 1}")
 
-        if save_screenshot:
+        # TODO process screenshot for gfootball
+        if save_screenshot and not args.env_name.startswith('gfootball'):
             venv.reset_agent()
             images = venv.get_images()
             plt.axis('off')

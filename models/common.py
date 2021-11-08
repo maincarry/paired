@@ -34,12 +34,12 @@ def apply_init_(modules, gain=None):
             if m.bias is not None:
                 nn.init.constant_(m.bias, 0)
 
-class Flatten(nn.Module):
-    """
-    Flatten a tensor
-    """
-    def forward(self, x):
-        return x.reshape(x.size(0), -1)
+# class Flatten(nn.Module):
+#     """
+#     Flatten a tensor
+#     """
+#     def forward(self, x):
+#         return x.reshape(x.size(0), -1)
 
 
 class DeviceAwareModule(nn.Module):

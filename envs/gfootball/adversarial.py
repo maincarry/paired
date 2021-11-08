@@ -31,47 +31,28 @@ class AdversarialEnv(scenicenv.GFEnv):
     """Initializes environment in which adversary places goal, agent, obstacles.
     """
 
-    # # Add two actions for placing the agent and goal.
-    # self.adversary_max_steps = self.n_clutter + 2
-
-    # TODO init gfootball v2 env
     super().__init__(
       initial_scenario, gf_env_settings, allow_render, rank
     )
+    print(f"{rank=}")
 
     self.step_count = 0
 
     # TODO: Create spaces for adversary agent's specs. For now, we only have 2.
     self.adversary_action_dim = num_adv_vars
-    self.adversary_action_space = gym.spaces.Box(
-        low=0, high=1.0, shape=(self.adversary_action_dim,), dtype=np.float32)
+    self.adversary_action_space = gym.spaces.Discrete(self.adversary_action_dim)
+    # self.adversary_action_space = gym.spaces.Box(
+    #     low=np.float32(0), high=np.float32(1), shape=(self.adversary_action_dim,), dtype=np.float32)
 
     self.adversary_observation_space = gym.spaces.Box(low=0, high=255, shape=(72, 96, 16), dtype='uint8')
-
-    # self.adversary_ts_obs_space = gym.spaces.Box(
-    #     low=0, high=self.adversary_max_steps, shape=(1,), dtype='uint8')
-    # self.adversary_randomz_obs_space = gym.spaces.Box(
-    #     low=0, high=1.0, shape=(random_z_dim,), dtype=np.float32)
-    # self.adversary_image_obs_space = gym.spaces.Box(
-    #     low=0,
-    #     high=255,
-    #     shape=(self.width, self.height, 3),
-    #     dtype='uint8')
-
-    # Adversary observations are dictionaries containing an encoding of the
-    # grid, the current time step, and a randomly generated vector used to
-    # condition generation (as in a GAN).
-    # self.adversary_observation_space = gym.spaces.Dict(
-    #     {'image': self.adversary_image_obs_space,
-    #      'time_step': self.adversary_ts_obs_space,
-    #      'random_z': self.adversary_randomz_obs_space})
 
 
 
 
   # this function returns an adv env obs
   def reset(self):
-    """Fully resets the environment."""
+    """Fully resets the environment.
+       Return an obs for adv env agent."""
     self.step_count = 0
 
     # Very important, we need obs for adv env! Here I just use agent obs.
@@ -98,10 +79,6 @@ class AdversarialEnv(scenicenv.GFEnv):
   #     obs, _, done, _ = self.step_adversary(a)
   #     if done:
   #       return self.reset_agent()
-
-
-  def generate_random_z(self):
-    return np.random.uniform(size=(self.random_z_dim,)).astype(np.float32)
 
   def step_adversary(self, loc):
     """The adversary gets n_clutter + 2 moves to place the goal, agent, blocks.
@@ -135,7 +112,7 @@ class AdversarialEnv(scenicenv.GFEnv):
 
 
 class MiniAdversarialEnv(AdversarialEnv):
-  def __init__(self, iprocess=0, **kwargs):
+  def __init__(self, iprocess, **kwargs):
     gf_env_settings = {
         "stacked": True,
         "rewards": "scoring",
@@ -152,7 +129,8 @@ class MiniAdversarialEnv(AdversarialEnv):
         "render": False
     }
     scenario_file = "/home/carla_challenge/rl/scenic4rl/training/gfrl/_scenarios/grf/empty_goal.scenic"
-    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank = iprocess, num_adv_vars = 2)
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
 
 if hasattr(__loader__, 'name'):

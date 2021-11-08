@@ -15,9 +15,6 @@ from .filewriter import FileWriter
 from envs.wrappers import ParallelAdversarialVecEnv, VecMonitor, \
     VecNormalize, VecPreprocessImageWrapper, TimeLimit
 
-from scenic.simulators.gfootball.rl.gfScenicEnv_v2 import GFScenicEnv_v2
-from scenic.simulators.gfootball.utilities.scenic_helper import buildScenario
-
 
 class DotDict(dict):
     __getattr__ = dict.__getitem__
@@ -109,37 +106,13 @@ def _make_env(args, process_num=None):
         env_kwargs.update({
             'fixed_environment': True})
 
-    if args.env_name == "gfootball":
+    if args.env_name.startswith("gfootball"):
         assert isinstance(process_num, int)
         env_kwargs['iprocess'] = process_num
 
 
     env = gym_make(args.env_name, **env_kwargs)
     return env
-
-# def create_single_gfootball_scenic_environment(iprocess, scenario_file):
-#     print("Scenic Environment: ", scenario_file)
-
-#     gf_env_settings = {
-#         "stacked": True,
-#         "rewards": "scoring",
-#         "representation": 'extracted',
-#         "players": [f"agent:left_players=1"],
-#         "real_time": False,
-#         "action_set": "default",
-#         "dump_full_episodes": False,
-#         "dump_scores": False,
-#         "write_video": False,
-#         "tracesdir": "dummy",
-#         "write_full_episode_dumps": False,
-#         "write_goal_dumps": False,
-#         "render": False
-#     }
-
-#     scenario = buildScenario(scenario_file)
-#     env = GFScenicEnv_v2(initial_scenario=scenario, gf_env_settings=gf_env_settings, rank=iprocess)
-#     return env
-
 
 
 def create_parallel_env(args, adversary=True):
