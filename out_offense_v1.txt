@@ -1,0 +1,1869 @@
+2021-11-10 20:23:24.497979: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+Creating log directory: /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1
+Symlinked log directory: /home/carla_challenge/logs/paired/latest
+Saving arguments to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/meta.json
+Saving messages to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/out.log
+Saving logs data to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/logs.csv
+Saving logs' fields to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/fields.csv
+Using CUDA
+
+2021-11-10 20:23:26.819797: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:26.830485: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:26.844422: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:26.880126: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.200328: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.201078: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.229864: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.249105: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.249104: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.253836: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.253834: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.253833: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.253833: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.289261: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.303027: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:27.316160: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+device:  cuda:0
+n_flatten=192
+2021-11-10 20:23:32.834675: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:32.834780: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:32.834786: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-11-10 20:23:32.856982: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+Updated log fields: ['_tick', '_time', 'mean_env_return', 'adversary_env_pg_loss', 'adversary_env_value_loss', 'adversary_env_dist_entropy', 'steps', 'total_episodes', 'mean_agent_return', 'agent_value_loss', 'agent_pg_loss', 'agent_dist_entropy', 'mean_adversary_agent_return', 'adversary_value_loss', 'adversary_pg_loss', 'adversary_dist_entropy', 'agent_grad_norm', 'adversary_grad_norm', 'adversary_env_grad_norm', 'agent_action_complexity', 'adversary_action_complexity', 'solved_rate:gfootball-MiniAdversarial-v0', 'test_returns:gfootball-MiniAdversarial-v0', 'sps']
+----------------------------------------------
+| _tick                          | 0         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 61.7      |
+| agent_dist_entropy             | 2.94      |
+| agent_grad_norm                | 0.172     |
+| agent_pg_loss                  | -3.32e-05 |
+| agent_value_loss               | 0.101     |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.2      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | 0         |
+| sps                            | 325       |
+| steps                          | 8.19e+03  |
+| test_returns:gfootball-Mini... | -0.2      |
+| total_episodes                 | 72        |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 1         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 58.6      |
+| agent_dist_entropy             | 2.94      |
+| agent_grad_norm                | 0.0334    |
+| agent_pg_loss                  | -4.33e-05 |
+| agent_value_loss               | 0.0627    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0.1       |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 377       |
+| steps                          | 9.01e+04  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 891       |
+----------------------------------------------
+---------------------------------------------
+| _tick                          | 2        |
+| _time                          | 1.64e+09 |
+| adversary_action_complexity    | 0        |
+| adversary_dist_entropy         | 0        |
+| adversary_env_dist_entropy     | 0        |
+| adversary_env_grad_norm        | 0        |
+| adversary_env_pg_loss          | 0        |
+| adversary_env_value_loss       | 0        |
+| adversary_grad_norm            | 0        |
+| adversary_pg_loss              | 0        |
+| adversary_value_loss           | 0        |
+| agent_action_complexity        | 59       |
+| agent_dist_entropy             | 2.94     |
+| agent_grad_norm                | 0.0569   |
+| agent_pg_loss                  | -0.00012 |
+| agent_value_loss               | 0.0721   |
+| mean_adversary_agent_return    | 0        |
+| mean_agent_return              | -0.1     |
+| mean_env_return                | 0        |
+| solved_rate:gfootball-MiniA... | None     |
+| sps                            | 379      |
+| steps                          | 1.72e+05 |
+| test_returns:gfootball-Mini... | None     |
+| total_episodes                 | 1.7e+03  |
+---------------------------------------------
+----------------------------------------------
+| _tick                          | 3         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 60.4      |
+| agent_dist_entropy             | 2.94      |
+| agent_grad_norm                | 0.0362    |
+| agent_pg_loss                  | -4.61e-05 |
+| agent_value_loss               | 0.0677    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.3      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 379       |
+| steps                          | 2.54e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.5e+03   |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 4         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 53.8      |
+| agent_dist_entropy             | 2.94      |
+| agent_grad_norm                | 0.0287    |
+| agent_pg_loss                  | -6.35e-05 |
+| agent_value_loss               | 0.049     |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 367       |
+| steps                          | 3.36e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.37e+03  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 5         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 62.8      |
+| agent_dist_entropy             | 2.94      |
+| agent_grad_norm                | 0.0322    |
+| agent_pg_loss                  | -4.39e-05 |
+| agent_value_loss               | 0.0488    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 379       |
+| steps                          | 4.18e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.17e+03  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 57
+----------------------------------------------
+| _tick                          | 6         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 55.7      |
+| agent_dist_entropy             | 2.94      |
+| agent_grad_norm                | 0.0439    |
+| agent_pg_loss                  | -0.000174 |
+| agent_value_loss               | 0.0434    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 377       |
+| steps                          | 5e+05     |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.96e+03  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 7         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 59.3      |
+| agent_dist_entropy             | 2.93      |
+| agent_grad_norm                | 0.0369    |
+| agent_pg_loss                  | -0.000104 |
+| agent_value_loss               | 0.0554    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 371       |
+| steps                          | 5.82e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 5.78e+03  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 8         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 52.6      |
+| agent_dist_entropy             | 2.94      |
+| agent_grad_norm                | 0.0493    |
+| agent_pg_loss                  | -0.000308 |
+| agent_value_loss               | 0.063     |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 366       |
+| steps                          | 6.64e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 6.65e+03  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 9         |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 55.1      |
+| agent_dist_entropy             | 2.93      |
+| agent_grad_norm                | 0.0509    |
+| agent_pg_loss                  | -0.000277 |
+| agent_value_loss               | 0.0542    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 370       |
+| steps                          | 7.45e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 7.49e+03  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 10        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 61.9      |
+| agent_dist_entropy             | 2.92      |
+| agent_grad_norm                | 0.0786    |
+| agent_pg_loss                  | -0.000176 |
+| agent_value_loss               | 0.0655    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.4      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 372       |
+| steps                          | 8.27e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 8.33e+03  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 11        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 59.1      |
+| agent_dist_entropy             | 2.93      |
+| agent_grad_norm                | 0.0428    |
+| agent_pg_loss                  | -0.000123 |
+| agent_value_loss               | 0.047     |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 376       |
+| steps                          | 9.09e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 9.12e+03  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 112
+----------------------------------------------
+| _tick                          | 12        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 59.4      |
+| agent_dist_entropy             | 2.93      |
+| agent_grad_norm                | 0.0598    |
+| agent_pg_loss                  | -8.01e-05 |
+| agent_value_loss               | 0.0388    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.2      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 372       |
+| steps                          | 9.91e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 9.95e+03  |
+----------------------------------------------
+---------------------------------------------
+| _tick                          | 13       |
+| _time                          | 1.64e+09 |
+| adversary_action_complexity    | 0        |
+| adversary_dist_entropy         | 0        |
+| adversary_env_dist_entropy     | 0        |
+| adversary_env_grad_norm        | 0        |
+| adversary_env_pg_loss          | 0        |
+| adversary_env_value_loss       | 0        |
+| adversary_grad_norm            | 0        |
+| adversary_pg_loss              | 0        |
+| adversary_value_loss           | 0        |
+| agent_action_complexity        | 58.5     |
+| agent_dist_entropy             | 2.9      |
+| agent_grad_norm                | 0.0849   |
+| agent_pg_loss                  | -0.00038 |
+| agent_value_loss               | 0.0568   |
+| mean_adversary_agent_return    | 0        |
+| mean_agent_return              | -0.2     |
+| mean_env_return                | 0        |
+| solved_rate:gfootball-MiniA... | None     |
+| sps                            | 373      |
+| steps                          | 1.07e+06 |
+| test_returns:gfootball-Mini... | None     |
+| total_episodes                 | 1.08e+04 |
+---------------------------------------------
+---------------------------------------------
+| _tick                          | 14       |
+| _time                          | 1.64e+09 |
+| adversary_action_complexity    | 0        |
+| adversary_dist_entropy         | 0        |
+| adversary_env_dist_entropy     | 0        |
+| adversary_env_grad_norm        | 0        |
+| adversary_env_pg_loss          | 0        |
+| adversary_env_value_loss       | 0        |
+| adversary_grad_norm            | 0        |
+| adversary_pg_loss              | 0        |
+| adversary_value_loss           | 0        |
+| agent_action_complexity        | 45.7     |
+| agent_dist_entropy             | 2.87     |
+| agent_grad_norm                | 0.0743   |
+| agent_pg_loss                  | -0.00051 |
+| agent_value_loss               | 0.0339   |
+| mean_adversary_agent_return    | 0        |
+| mean_agent_return              | 0        |
+| mean_env_return                | 0        |
+| solved_rate:gfootball-MiniA... | None     |
+| sps                            | 374      |
+| steps                          | 1.16e+06 |
+| test_returns:gfootball-Mini... | None     |
+| total_episodes                 | 1.16e+04 |
+---------------------------------------------
+----------------------------------------------
+| _tick                          | 15        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 57        |
+| agent_dist_entropy             | 2.8       |
+| agent_grad_norm                | 0.0779    |
+| agent_pg_loss                  | -0.000202 |
+| agent_value_loss               | 0.0452    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 377       |
+| steps                          | 1.24e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.24e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 16        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 53.4      |
+| agent_dist_entropy             | 2.82      |
+| agent_grad_norm                | 0.0772    |
+| agent_pg_loss                  | -0.000309 |
+| agent_value_loss               | 0.0522    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 377       |
+| steps                          | 1.32e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.32e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 167
+----------------------------------------------
+| _tick                          | 17        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 51.2      |
+| agent_dist_entropy             | 2.84      |
+| agent_grad_norm                | 0.0713    |
+| agent_pg_loss                  | -0.000417 |
+| agent_value_loss               | 0.00796   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 368       |
+| steps                          | 1.4e+06   |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.4e+04   |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 18        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 58.2      |
+| agent_dist_entropy             | 2.8       |
+| agent_grad_norm                | 0.119     |
+| agent_pg_loss                  | -0.000151 |
+| agent_value_loss               | 0.0262    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 366       |
+| steps                          | 1.48e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.49e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 19        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 54.3      |
+| agent_dist_entropy             | 2.76      |
+| agent_grad_norm                | 0.0862    |
+| agent_pg_loss                  | -0.000249 |
+| agent_value_loss               | 0.0429    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.4      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 366       |
+| steps                          | 1.56e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.57e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 20        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 52.5      |
+| agent_dist_entropy             | 2.72      |
+| agent_grad_norm                | 0.0787    |
+| agent_pg_loss                  | -0.000125 |
+| agent_value_loss               | 0.0312    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 353       |
+| steps                          | 1.65e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.67e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 21        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 54.2      |
+| agent_dist_entropy             | 2.67      |
+| agent_grad_norm                | 0.108     |
+| agent_pg_loss                  | -0.000603 |
+| agent_value_loss               | 0.0138    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 363       |
+| steps                          | 1.73e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.75e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 220
+----------------------------------------------
+| _tick                          | 22        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 58.4      |
+| agent_dist_entropy             | 2.64      |
+| agent_grad_norm                | 0.0944    |
+| agent_pg_loss                  | -4.91e-05 |
+| agent_value_loss               | 0.0219    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 363       |
+| steps                          | 1.81e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.84e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 23        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 52.4      |
+| agent_dist_entropy             | 2.59      |
+| agent_grad_norm                | 0.114     |
+| agent_pg_loss                  | -0.000536 |
+| agent_value_loss               | 0.0309    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0.1       |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 372       |
+| steps                          | 1.89e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.92e+04  |
+----------------------------------------------
+---------------------------------------------
+| _tick                          | 24       |
+| _time                          | 1.64e+09 |
+| adversary_action_complexity    | 0        |
+| adversary_dist_entropy         | 0        |
+| adversary_env_dist_entropy     | 0        |
+| adversary_env_grad_norm        | 0        |
+| adversary_env_pg_loss          | 0        |
+| adversary_env_value_loss       | 0        |
+| adversary_grad_norm            | 0        |
+| adversary_pg_loss              | 0        |
+| adversary_value_loss           | 0        |
+| agent_action_complexity        | 54.2     |
+| agent_dist_entropy             | 2.61     |
+| agent_grad_norm                | 0.104    |
+| agent_pg_loss                  | -0.00047 |
+| agent_value_loss               | 0.0141   |
+| mean_adversary_agent_return    | 0        |
+| mean_agent_return              | 0        |
+| mean_env_return                | 0        |
+| solved_rate:gfootball-MiniA... | None     |
+| sps                            | 364      |
+| steps                          | 1.97e+06 |
+| test_returns:gfootball-Mini... | None     |
+| total_episodes                 | 2e+04    |
+---------------------------------------------
+----------------------------------------------
+| _tick                          | 25        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 59.2      |
+| agent_dist_entropy             | 2.57      |
+| agent_grad_norm                | 0.112     |
+| agent_pg_loss                  | -0.000274 |
+| agent_value_loss               | 0.00975   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | 0         |
+| sps                            | 361       |
+| steps                          | 2.06e+06  |
+| test_returns:gfootball-Mini... | -0.2      |
+| total_episodes                 | 2.08e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 26        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 49.5      |
+| agent_dist_entropy             | 2.54      |
+| agent_grad_norm                | 0.114     |
+| agent_pg_loss                  | -0.000219 |
+| agent_value_loss               | 0.000187  |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 363       |
+| steps                          | 2.14e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.17e+04  |
+----------------------------------------------
+---------------------------------------------
+| _tick                          | 27       |
+| _time                          | 1.64e+09 |
+| adversary_action_complexity    | 0        |
+| adversary_dist_entropy         | 0        |
+| adversary_env_dist_entropy     | 0        |
+| adversary_env_grad_norm        | 0        |
+| adversary_env_pg_loss          | 0        |
+| adversary_env_value_loss       | 0        |
+| adversary_grad_norm            | 0        |
+| adversary_pg_loss              | 0        |
+| adversary_value_loss           | 0        |
+| agent_action_complexity        | 56       |
+| agent_dist_entropy             | 2.57     |
+| agent_grad_norm                | 0.12     |
+| agent_pg_loss                  | -0.00031 |
+| agent_value_loss               | 0.0438   |
+| mean_adversary_agent_return    | 0        |
+| mean_agent_return              | 0        |
+| mean_env_return                | 0        |
+| solved_rate:gfootball-MiniA... | None     |
+| sps                            | 376      |
+| steps                          | 2.22e+06 |
+| test_returns:gfootball-Mini... | None     |
+| total_episodes                 | 2.25e+04 |
+---------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 275
+----------------------------------------------
+| _tick                          | 28        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 54.2      |
+| agent_dist_entropy             | 2.52      |
+| agent_grad_norm                | 0.108     |
+| agent_pg_loss                  | -0.000368 |
+| agent_value_loss               | 0.0352    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 381       |
+| steps                          | 2.3e+06   |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.32e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 29        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 56.9      |
+| agent_dist_entropy             | 2.5       |
+| agent_grad_norm                | 0.128     |
+| agent_pg_loss                  | -0.000621 |
+| agent_value_loss               | 0.000442  |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 384       |
+| steps                          | 2.38e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.4e+04   |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 30        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 57.2      |
+| agent_dist_entropy             | 2.51      |
+| agent_grad_norm                | 0.117     |
+| agent_pg_loss                  | -0.000815 |
+| agent_value_loss               | 0.012     |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 365       |
+| steps                          | 2.47e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.47e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 31        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 58.1      |
+| agent_dist_entropy             | 2.51      |
+| agent_grad_norm                | 0.114     |
+| agent_pg_loss                  | -0.000474 |
+| agent_value_loss               | 0.00975   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0.1       |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 381       |
+| steps                          | 2.55e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.55e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 32        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 56.6      |
+| agent_dist_entropy             | 2.56      |
+| agent_grad_norm                | 0.119     |
+| agent_pg_loss                  | -0.000524 |
+| agent_value_loss               | 0.00704   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 343       |
+| steps                          | 2.63e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.62e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 329
+----------------------------------------------
+| _tick                          | 33        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 59.7      |
+| agent_dist_entropy             | 2.49      |
+| agent_grad_norm                | 0.106     |
+| agent_pg_loss                  | -2.83e-05 |
+| agent_value_loss               | 0.00741   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 337       |
+| steps                          | 2.71e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.69e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 34        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 61.2      |
+| agent_dist_entropy             | 2.45      |
+| agent_grad_norm                | 0.111     |
+| agent_pg_loss                  | -0.000291 |
+| agent_value_loss               | 0.0144    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 349       |
+| steps                          | 2.79e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.76e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 35        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 53.6      |
+| agent_dist_entropy             | 2.44      |
+| agent_grad_norm                | 0.106     |
+| agent_pg_loss                  | -0.000365 |
+| agent_value_loss               | 0.000167  |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 341       |
+| steps                          | 2.88e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.82e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 36        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 65.8      |
+| agent_dist_entropy             | 2.44      |
+| agent_grad_norm                | 0.115     |
+| agent_pg_loss                  | -6.73e-05 |
+| agent_value_loss               | 0.00825   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 355       |
+| steps                          | 2.96e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.88e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 37        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 61        |
+| agent_dist_entropy             | 2.43      |
+| agent_grad_norm                | 0.107     |
+| agent_pg_loss                  | -0.000345 |
+| agent_value_loss               | 0.0178    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 353       |
+| steps                          | 3.04e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 2.94e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 38        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 61.2      |
+| agent_dist_entropy             | 2.46      |
+| agent_grad_norm                | 0.108     |
+| agent_pg_loss                  | -0.000155 |
+| agent_value_loss               | 3.15e-06  |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 355       |
+| steps                          | 3.12e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3e+04     |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 381
+---------------------------------------------
+| _tick                          | 39       |
+| _time                          | 1.64e+09 |
+| adversary_action_complexity    | 0        |
+| adversary_dist_entropy         | 0        |
+| adversary_env_dist_entropy     | 0        |
+| adversary_env_grad_norm        | 0        |
+| adversary_env_pg_loss          | 0        |
+| adversary_env_value_loss       | 0        |
+| adversary_grad_norm            | 0        |
+| adversary_pg_loss              | 0        |
+| adversary_value_loss           | 0        |
+| agent_action_complexity        | 64.6     |
+| agent_dist_entropy             | 2.49     |
+| agent_grad_norm                | 0.103    |
+| agent_pg_loss                  | -0.00033 |
+| agent_value_loss               | 9.06e-06 |
+| mean_adversary_agent_return    | 0        |
+| mean_agent_return              | 0        |
+| mean_env_return                | 0        |
+| solved_rate:gfootball-MiniA... | None     |
+| sps                            | 350      |
+| steps                          | 3.2e+06  |
+| test_returns:gfootball-Mini... | None     |
+| total_episodes                 | 3.06e+04 |
+---------------------------------------------
+----------------------------------------------
+| _tick                          | 40        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 54.9      |
+| agent_dist_entropy             | 2.54      |
+| agent_grad_norm                | 0.109     |
+| agent_pg_loss                  | -0.000186 |
+| agent_value_loss               | 0.027     |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.3      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 345       |
+| steps                          | 3.28e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.13e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 41        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 58.3      |
+| agent_dist_entropy             | 2.6       |
+| agent_grad_norm                | 0.102     |
+| agent_pg_loss                  | -0.000492 |
+| agent_value_loss               | 0.0191    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 334       |
+| steps                          | 3.37e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.21e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 42        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 56.5      |
+| agent_dist_entropy             | 2.55      |
+| agent_grad_norm                | 0.118     |
+| agent_pg_loss                  | -0.000515 |
+| agent_value_loss               | 0.0136    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 338       |
+| steps                          | 3.45e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.28e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 43        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 61.1      |
+| agent_dist_entropy             | 2.56      |
+| agent_grad_norm                | 0.104     |
+| agent_pg_loss                  | -0.000157 |
+| agent_value_loss               | 5.64e-05  |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 349       |
+| steps                          | 3.53e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.34e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 432
+----------------------------------------------
+| _tick                          | 44        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 62.9      |
+| agent_dist_entropy             | 2.53      |
+| agent_grad_norm                | 0.112     |
+| agent_pg_loss                  | -0.000411 |
+| agent_value_loss               | 0.0196    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 342       |
+| steps                          | 3.61e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.41e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 45        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 56.6      |
+| agent_dist_entropy             | 2.54      |
+| agent_grad_norm                | 0.105     |
+| agent_pg_loss                  | -0.000179 |
+| agent_value_loss               | 0.0138    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 336       |
+| steps                          | 3.69e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.48e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 46        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 67.4      |
+| agent_dist_entropy             | 2.58      |
+| agent_grad_norm                | 0.104     |
+| agent_pg_loss                  | -0.000441 |
+| agent_value_loss               | 0.00598   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 346       |
+| steps                          | 3.78e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.55e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 47        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 53.3      |
+| agent_dist_entropy             | 2.63      |
+| agent_grad_norm                | 0.107     |
+| agent_pg_loss                  | -0.000281 |
+| agent_value_loss               | 0.0261    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 328       |
+| steps                          | 3.86e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.63e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 48        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 54.7      |
+| agent_dist_entropy             | 2.61      |
+| agent_grad_norm                | 0.106     |
+| agent_pg_loss                  | -0.000396 |
+| agent_value_loss               | 0.0138    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 324       |
+| steps                          | 3.94e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.71e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 482
+----------------------------------------------
+| _tick                          | 49        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 68.2      |
+| agent_dist_entropy             | 2.54      |
+| agent_grad_norm                | 0.105     |
+| agent_pg_loss                  | -5.78e-06 |
+| agent_value_loss               | 0.00768   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 345       |
+| steps                          | 4.02e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.78e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 50        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 60        |
+| agent_dist_entropy             | 2.54      |
+| agent_grad_norm                | 0.113     |
+| agent_pg_loss                  | -0.000306 |
+| agent_value_loss               | 0.000667  |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | 0         |
+| sps                            | 333       |
+| steps                          | 4.1e+06   |
+| test_returns:gfootball-Mini... | 0         |
+| total_episodes                 | 3.85e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 51        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 55.2      |
+| agent_dist_entropy             | 2.57      |
+| agent_grad_norm                | 0.1       |
+| agent_pg_loss                  | -0.000403 |
+| agent_value_loss               | 0.0149    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 333       |
+| steps                          | 4.19e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 3.92e+04  |
+----------------------------------------------
+---------------------------------------------
+| _tick                          | 52       |
+| _time                          | 1.64e+09 |
+| adversary_action_complexity    | 0        |
+| adversary_dist_entropy         | 0        |
+| adversary_env_dist_entropy     | 0        |
+| adversary_env_grad_norm        | 0        |
+| adversary_env_pg_loss          | 0        |
+| adversary_env_value_loss       | 0        |
+| adversary_grad_norm            | 0        |
+| adversary_pg_loss              | 0        |
+| adversary_value_loss           | 0        |
+| agent_action_complexity        | 57.2     |
+| agent_dist_entropy             | 2.55     |
+| agent_grad_norm                | 0.113    |
+| agent_pg_loss                  | -9.1e-05 |
+| agent_value_loss               | 0.0124   |
+| mean_adversary_agent_return    | 0        |
+| mean_agent_return              | 0.1      |
+| mean_env_return                | 0        |
+| solved_rate:gfootball-MiniA... | None     |
+| sps                            | 329      |
+| steps                          | 4.27e+06 |
+| test_returns:gfootball-Mini... | None     |
+| total_episodes                 | 4e+04    |
+---------------------------------------------
+----------------------------------------------
+| _tick                          | 53        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 54.3      |
+| agent_dist_entropy             | 2.54      |
+| agent_grad_norm                | 0.109     |
+| agent_pg_loss                  | -0.000528 |
+| agent_value_loss               | 0.0256    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 328       |
+| steps                          | 4.35e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.08e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 531
+----------------------------------------------
+| _tick                          | 54        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 57.1      |
+| agent_dist_entropy             | 2.52      |
+| agent_grad_norm                | 0.107     |
+| agent_pg_loss                  | -0.000355 |
+| agent_value_loss               | 0.0131    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 323       |
+| steps                          | 4.43e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.16e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 55        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 54.5      |
+| agent_dist_entropy             | 2.52      |
+| agent_grad_norm                | 0.113     |
+| agent_pg_loss                  | -0.000587 |
+| agent_value_loss               | 0.0138    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 309       |
+| steps                          | 4.51e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.26e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 56        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 54        |
+| agent_dist_entropy             | 2.49      |
+| agent_grad_norm                | 0.13      |
+| agent_pg_loss                  | -0.000588 |
+| agent_value_loss               | 0.00648   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 304       |
+| steps                          | 4.6e+06   |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.36e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 57        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 46.4      |
+| agent_dist_entropy             | 2.46      |
+| agent_grad_norm                | 0.135     |
+| agent_pg_loss                  | -0.000843 |
+| agent_value_loss               | 0.0131    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0.1       |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 309       |
+| steps                          | 4.68e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.45e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 577
+----------------------------------------------
+| _tick                          | 58        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 48.9      |
+| agent_dist_entropy             | 2.44      |
+| agent_grad_norm                | 0.0945    |
+| agent_pg_loss                  | -0.000271 |
+| agent_value_loss               | 0.0286    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 310       |
+| steps                          | 4.76e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.55e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 59        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 50.3      |
+| agent_dist_entropy             | 2.4       |
+| agent_grad_norm                | 0.112     |
+| agent_pg_loss                  | -0.000361 |
+| agent_value_loss               | 0.0126    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 305       |
+| steps                          | 4.84e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.64e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 60        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 44.1      |
+| agent_dist_entropy             | 2.37      |
+| agent_grad_norm                | 0.12      |
+| agent_pg_loss                  | -0.000623 |
+| agent_value_loss               | 0.00191   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 305       |
+| steps                          | 4.92e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 4.74e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 61        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_grad_norm        | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_grad_norm            | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 44.6      |
+| agent_dist_entropy             | 2.35      |
+| agent_grad_norm                | 0.101     |
+| agent_pg_loss                  | -0.000329 |
+| agent_value_loss               | 0.00632   |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | 0         |
+| sps                            | 326       |
+| steps                          | 5e+06     |
+| test_returns:gfootball-Mini... | 0         |
+| total_episodes                 | 4.84e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v1/model.tar
+INFO:root:
+Saved checkpoint after update 610
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=100
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=102
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=103
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=101
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f3c31075dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f2d443cadc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7fd8e1b71dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7fec0fa79dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=1
+Resample Script. Cause Error:  Ran out of input
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=0
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=3
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=2
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=5
+Resample Script. Cause Error:  Ran out of input
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=4
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=6
+Resample Script. Cause Error:  Ran out of input
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=8
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=7
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=11
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=13
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=12
+Resample Script. Cause Error:  Ran out of input
+Resample Script. Cause Error:  Ran out of input
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=10
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=14
+Resample Script. Cause Error:  Ran out of input
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=15
+Resample Script. Cause Error:  Ran out of input
+Resample Script. Cause Error:  Ran out of input
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=9
+Resample Script. Cause Error:  Ran out of input
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7fc00c3e3dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f4231395dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f53a234adc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f312a56ddc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f061c284dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f0ad5ffedc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f649ae4edc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f4fd468adc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f34d8c90dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f5a0a7addc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7fd0749a0dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f91697fddc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7faca0a27dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f3b9b9abdc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f1962b73dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'
+Exception ignored in: <function FootballEnvCore.__del__ at 0x7f4307472dc0>
+Traceback (most recent call last):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 151, in __del__
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 145, in close
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/site-packages/gfootball/env/football_env_core.py", line 141, in _release_engine
+AttributeError: 'NoneType' object has no attribute 'append'

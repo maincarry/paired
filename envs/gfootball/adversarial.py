@@ -128,7 +128,7 @@ class MiniAdversarialEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/carla_challenge/rl/scenic4rl/training/gfrl/_scenarios/grf/empty_goal.scenic"
+    scenario_file = "/home/carla_challenge/rl/scenic4rl/training/gfrl/_scenarios/offense/avoid_pass_shoot.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
