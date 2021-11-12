@@ -18,6 +18,15 @@ import torch
 from . import scenicenv
 from . import register
 
+from dotmap import DotMap
+from verifai.samplers.scenic_sampler import ScenicSampler
+from verifai.scenic_server import ScenicServer
+from verifai.falsifier import generic_falsifier
+import os
+from scenic.core.vectors import Vector
+import math
+from verifai.monitor import specification_monitor, mtl_specification
+
 
 class AdversarialEnv(scenicenv.GFEnv):
   """Grid world where an adversary build the environment the agent plays.
@@ -41,12 +50,25 @@ class AdversarialEnv(scenicenv.GFEnv):
     # TODO: Create spaces for adversary agent's specs. For now, we only have 2.
     self.adversary_action_dim = num_adv_vars
     self.adversary_action_space = gym.spaces.Discrete(self.adversary_action_dim)
-    # self.adversary_action_space = gym.spaces.Box(
-    #     low=np.float32(0), high=np.float32(1), shape=(self.adversary_action_dim,), dtype=np.float32)
-
     self.adversary_observation_space = gym.spaces.Box(low=0, high=255, shape=(72, 96, 16), dtype='uint8')
 
+    # Eddie: instantiate VerifAI with the initial_scenario path
+    # sampler = ScenicSampler.fromScenario(initial_scenario)
 
+    # falsifier_params = DotMap(
+    #     n_iters=5,
+    #     save_error_table=True,
+    #     save_safe_table=True,
+    #     error_table_path='error_table.csv',
+    #     safe_table_path='safe_table.csv'
+    # )
+    # server_options = DotMap(maxSteps=100, verbosity=0)
+    # self.falsifier = generic_falsifier(sampler=sampler,
+    #                           # monitor = MyMonitor(),
+    #                           falsifier_params=falsifier_params,
+    #                           server_class=ScenicServer,
+    #                           server_options=server_options)
+    # self.scene = None
 
 
   # this function returns an adv env obs
@@ -56,10 +78,9 @@ class AdversarialEnv(scenicenv.GFEnv):
     self.step_count = 0
 
     # Very important, we need obs for adv env! Here I just use agent obs.
+    # obs, self.scene = super().ACL_reset(self.falsifier)
     obs = super().reset()
-
     return obs
-
 
   def reset_agent(self):
     """Resets the agent's start position, but leaves goal and walls."""
@@ -68,6 +89,7 @@ class AdversarialEnv(scenicenv.GFEnv):
     self.step_count = 0
 
     # Return first observation
+    # obs = super().ACL_resetAgent(self.scene)
     obs = super().reset()
 
     return obs

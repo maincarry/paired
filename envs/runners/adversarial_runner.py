@@ -391,6 +391,10 @@ class AdversarialRunner(object):
 
         env_return = self._compute_env_return(agent_info, adversary_agent_info)
 
+        # eddie : send the regret back to verifai falsifier
+        # ToDO: need to check the env_return type
+        # self.ued_venv.falsifier.save_result(env_return)
+
         adversary_env_info = defaultdict(float)
         if self.is_training and self.is_training_env:
             with torch.no_grad():

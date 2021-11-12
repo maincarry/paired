@@ -263,3 +263,318 @@ Saved checkpoint after update 57
 | test_returns:gfootball-Mini... | None      |
 | total_episodes                 | 7.24e+03  |
 ----------------------------------------------
+----------------------------------------------
+| _tick                          | 10        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 58.7      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -4.61e-06 |
+| agent_value_loss               | 0.0557    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.3      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 386       |
+| steps                          | 8.27e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 8.06e+03  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 11        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 63.8      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -1.42e-06 |
+| agent_value_loss               | 0.055     |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 400       |
+| steps                          | 9.09e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 8.82e+03  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v2-long/model.tar
+INFO:root:
+Saved checkpoint after update 114
+----------------------------------------------
+| _tick                          | 12        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 64.7      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -7.03e-06 |
+| agent_value_loss               | 0.0805    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.2      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 385       |
+| steps                          | 9.91e+05  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 9.6e+03   |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 13        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 57.7      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -1.36e-05 |
+| agent_value_loss               | 0.0565    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 395       |
+| steps                          | 1.07e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.04e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 14        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 57.2      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -1.76e-05 |
+| agent_value_loss               | 0.0659    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.4      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 396       |
+| steps                          | 1.16e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.12e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 15        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 59.1      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -1.81e-05 |
+| agent_value_loss               | 0.0505    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 387       |
+| steps                          | 1.24e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.2e+04   |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 16        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 58.9      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -2.11e-05 |
+| agent_value_loss               | 0.0537    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.2      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 383       |
+| steps                          | 1.32e+06  |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.28e+04  |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 17        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 0         |
+| adversary_dist_entropy         | 0         |
+| adversary_env_dist_entropy     | 0         |
+| adversary_env_pg_loss          | 0         |
+| adversary_env_value_loss       | 0         |
+| adversary_pg_loss              | 0         |
+| adversary_value_loss           | 0         |
+| agent_action_complexity        | 61.8      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -3.04e-06 |
+| agent_value_loss               | 0.0487    |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | -0.1      |
+| mean_env_return                | 0         |
+| solved_rate:gfootball-MiniA... | None      |
+| sps                            | 392       |
+| steps                          | 1.4e+06   |
+| test_returns:gfootball-Mini... | None      |
+| total_episodes                 | 1.36e+04  |
+----------------------------------------------
+INFO:root:Saved checkpoint to /home/carla_challenge/logs/paired/ued-Gfootball-test-DR-offense-v2-long/model.tar
+INFO:root:
+Saved checkpoint after update 172
+pygame 2.0.2 (SDL 2.0.16, Python 3.8.12)
+Hello from the pygame community. https://www.pygame.org/contribute.html
+rank=1
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/scene_data/scenic_scene_1'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Resample Script. Cause Error:  [Errno 2] No such file or directory: '/home/carla_challenge/rl/scenic4rl/src/scenic/simulators/gfootball/utilities/template_gf_scenario.py'
+Traceback (most recent call last; use -b to show Scenic internals):
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/carla_challenge/anaconda3/envs/paired/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/carla_challenge/rl/paired/train.py", line 134, in <module>
+    stats = train_runner.run()
+  File "/home/carla_challenge/rl/paired/envs/runners/adversarial_runner.py", line 379, in run
+    agent_info = self.agent_rollout(
+  File "/home/carla_challenge/rl/paired/envs/runners/adversarial_runner.py", line 251, in agent_rollout
+    obs, reward, done, infos = self.venv.step_env(_action, reset_random=reset_random)
+  File "/home/carla_challenge/rl/paired/envs/wrappers/vec_env.py", line 115, in step_env
+    return self.step_wait()
+  File "/home/carla_challenge/rl/paired/envs/wrappers/obs_wrappers.py", line 176, in step_wait
+    obs, rews, dones, infos = self.venv.step_wait()
+  File "/home/carla_challenge/rl/paired/envs/wrappers/vec_normalize.py", line 27, in step_wait
+    obs, rews, news, infos = self.venv.step_wait()
+  File "/home/carla_challenge/rl/paired/envs/wrappers/vec_monitor.py", line 44, in step_wait
+    obs, rews, dones, infos = self.venv.step_wait()
+  File "/home/carla_challenge/rl/paired/envs/wrappers/parallel_wrappers.py", line 147, in step_wait
+    return _flatten_obs(obs), np.stack(rews), np.stack(dones), infos
+  File "/home/carla_challenge/rl/paired/envs/wrappers/parallel_wrappers.py", line 208, in _flatten_obs
+    return np.stack(obs)
+  File "<__array_function__ internals>", line 5, in stack
+  File "/home/carla_challenge/.local/lib/python3.8/site-packages/numpy/core/shape_base.py", line 427, in stack
+    raise ValueError('all input arrays must have the same shape')
+ValueError: all input arrays must have the same shape
