@@ -15,8 +15,8 @@ class GFootballNetwork(DeviceAwareModule):
     def __init__(self, 
         observation_space, 
         action_space, 
-        actor_fc_layers=(32,32),
-        value_fc_layers=(32,32),
+        # actor_fc_layers=(32,32),
+        # value_fc_layers=(32,32),
         random=False):
 
         super().__init__()
@@ -91,14 +91,14 @@ class GFootballNetwork(DeviceAwareModule):
 
         # Policy head
         self.actor = nn.Sequential(
-            make_fc_layers_with_hidden_sizes(actor_fc_layers, input_size=self.features_dim),
-            Categorical(actor_fc_layers[-1], self.num_actions)
+            # make_fc_layers_with_hidden_sizes(actor_fc_layers, input_size=self.features_dim),
+            Categorical(self.features_dim, self.num_actions)
         )
 
         # Value head
         self.critic = nn.Sequential(
-            make_fc_layers_with_hidden_sizes(value_fc_layers, input_size=self.features_dim),
-            nn.Linear(value_fc_layers[-1], 1)
+            # make_fc_layers_with_hidden_sizes(value_fc_layers, input_size=self.features_dim),
+            nn.Linear(self.features_dim, 1)
         )
 
         # apply_init_(self.modules())
@@ -146,6 +146,12 @@ class GFootballNetwork(DeviceAwareModule):
         raise NotImplementedError
 
     def act(self, inputs, rnn_hxs, masks, deterministic=False):
+
+        # TODO: remove
+        print(inputs.shape)
+        torch.save(inputs, 'obs.pt')
+        1/0
+
         if self.random:
             print("Random not implemented.")
 

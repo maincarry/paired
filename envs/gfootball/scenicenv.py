@@ -2,6 +2,7 @@ from scenic.simulators.gfootball.rl.gfScenicEnv_v2 import GFScenicEnv_v2
 from scenic.simulators.gfootball.utilities.scenic_helper import buildScenario
 
 import torch
+import numpy as np
 
 class GFEnv(GFScenicEnv_v2):
   """Wrapper for GFScenicEnv_v2"""
@@ -22,6 +23,11 @@ class GFEnv(GFScenicEnv_v2):
       if isinstance(actions, torch.Tensor):
           actions = actions.item()
       obs, rew, done, info = super().step(actions)
+
+      # TODO remove
+      with open('obs_raw.npy', 'wb') as f:
+          np.save(f, obs)
+      print("Saved Obs")
 
       # TODO need to reduce the reward by time
       # print(rew)

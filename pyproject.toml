@@ -6,8 +6,8 @@ authors = ["Edward Kim <ek65@berkeley.edu>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-scenic = {path="/home/curriculum_learning/rl/paired/scenic4rl"}
-#verifai = {path="/home/curriculum_learning/rl/paired/VerifAI"}
+scenic = {path="/home/curriculum_learning/rl/scenic4rl"}
+#verifai = {path="/home/curriculum_learning/rl/VerifAI"}
 
 verifai = "^2.0.0-beta.1"
 minihack = "^0.1.1"

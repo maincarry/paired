@@ -17,11 +17,15 @@ class VecNormalize(VecEnvWrapper):
             from baselines.common.running_mean_std import RunningMeanStd
             self.ob_rms = RunningMeanStd(shape=self.observation_space.shape) if ob else None
             self.ret_rms = RunningMeanStd(shape=()) if ret else None
+
         self.clipob = clipob
         self.cliprew = cliprew
         self.ret = np.zeros(self.num_envs)
         self.gamma = gamma
         self.epsilon = epsilon
+
+        # checked that ob_rms and ret_rms is None for GFootball
+        # print(f"Vec Normalize: {self.ob_rms=}, {self.ret_rms=}, {self.gamma=}, {self.epsilon}")
 
     def step_wait(self):
         obs, rews, news, infos = self.venv.step_wait()
