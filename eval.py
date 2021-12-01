@@ -189,10 +189,12 @@ class Evaluator(object):
             transpose_order = None
             scale = None
             obs_key = ['glyphs', 'blstats']
-        else:
+        else: # is_gfootball
             obs_key = None
-            transpose_order = None
             scale = None
+
+        if is_gfootball:
+            transpose_order = [2, 0, 1]
 
         venv = VecMonitor(venv=venv, filename=None, keep_buf=100)
         venv = VecPreprocessImageWrapper(venv=venv, obs_key=obs_key,
@@ -252,6 +254,7 @@ class Evaluator(object):
             while len(returns) < self.num_episodes:
                 # Sample actions
                 with torch.no_grad():
+                    # print(obs.shape) # torch.Size([4, 16, 72, 96])
                     _, action, _, recurrent_hidden_states = agent.act(
                         obs, recurrent_hidden_states, masks, deterministic=deterministic)
 
@@ -260,6 +263,10 @@ class Evaluator(object):
                 action = agent.process_action(action)
                 obs, reward, done, infos = venv.step(action)
 
+                # if torch.sum(reward) != 0:
+                #     print(f"iter {len(returns)}: {reward}")
+
+
                 masks = torch.tensor(
                     [[0.0] if done_ else [1.0] for done_ in done],
                     dtype=torch.float32,
@@ -267,6 +274,10 @@ class Evaluator(object):
 
                 for i, info in enumerate(infos):
                     if 'episode' in info.keys():
+                        # print(info)
+                        '''
+                        {'score_reward': 0, 'action_taken': [builtin_ai, 5, builtin_ai, builtin_ai, builtin_ai], 'episode': {'r': 0.0, 'l': 54, 't': 32.884178}}
+                        '''
                         returns.append(info['episode']['r'])
                         if returns[-1] > 0:
                             solved_episodes += 1
@@ -302,7 +313,9 @@ if __name__ == '__main__':
     os.environ["OMP_NUM_THREADS"] = "1"
 
     display = None
-    if sys.platform.startswith('linux'):
+
+    # just disable this
+    if False and sys.platform.startswith('linux'):
         print('Setting up virtual display')
 
         import pyvirtualdisplay
@@ -313,7 +326,9 @@ if __name__ == '__main__':
     args.num_processes = min(args.num_processes, args.num_episodes)
 
     # === Determine device ====
-    device = 'cpu'
+    device = "cuda:0"
+    print(f"Using device: {device}")
+    # device = 'cpu'
 
     # === Load checkpoint ===
     # Load meta.json into flags object
@@ -395,7 +410,8 @@ if __name__ == '__main__':
 
                 evaluator = Evaluator(env_names_,
                     num_processes=args.num_processes,
-                    num_episodes=args.num_episodes)
+                    num_episodes=args.num_episodes,
+                    device=device)
 
                 stats = evaluator.evaluate(agent,
                     deterministic=args.deterministic,

@@ -391,8 +391,8 @@ class AdversarialRunner(object):
 
         env_return = self._compute_env_return(agent_info, adversary_agent_info)
 
-        # TODO debug
-        print(env_return)
+        # # TODO debug
+        # print(env_return)
 
         # eddie : send the regret back to verifai falsifier
         # ToDO: need to check the env_return type

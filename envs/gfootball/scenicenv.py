@@ -24,11 +24,6 @@ class GFEnv(GFScenicEnv_v2):
           actions = actions.item()
       obs, rew, done, info = super().step(actions)
 
-      # TODO remove
-      with open('obs_raw.npy', 'wb') as f:
-          np.save(f, obs)
-      print("Saved Obs")
-
       # TODO need to reduce the reward by time
       # print(rew)
       return obs, rew, done, info

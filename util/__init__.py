@@ -142,6 +142,9 @@ def create_parallel_env(args, adversary=True):
     elif is_minihack:
         ued_venv = VecPreprocessImageWrapper(venv=venv)
 
+    elif is_gfootball:
+        transpose_order = [2, 0, 1]  # Channels first
+
     venv = VecPreprocessImageWrapper(venv=venv, obs_key=obs_key, 
         transpose_order=transpose_order, scale=scale)
 

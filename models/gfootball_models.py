@@ -147,10 +147,10 @@ class GFootballNetwork(DeviceAwareModule):
 
     def act(self, inputs, rnn_hxs, masks, deterministic=False):
 
-        # TODO: remove
-        print(inputs.shape)
-        torch.save(inputs, 'obs.pt')
-        1/0
+        # # TODO: remove
+        # print(inputs.shape)
+        # torch.save(inputs, 'obs.pt')
+        # 1/0
 
         if self.random:
             print("Random not implemented.")

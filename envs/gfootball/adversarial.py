@@ -155,6 +155,28 @@ class MiniAdversarialEnv(AdversarialEnv):
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
 
+class AvoidPassShootAdversarialEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/offense/avoid_pass_shoot.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
 if hasattr(__loader__, 'name'):
   module_path = __loader__.name
 elif hasattr(__loader__, 'fullname'):
@@ -165,3 +187,7 @@ register.register(
     entry_point=module_path + ':MiniAdversarialEnv',
 )
 
+register.register(
+    env_id='gfootball-AvoidPassShootAdversarial-v0',
+    entry_point=module_path + ':AvoidPassShootAdversarialEnv',
+)
