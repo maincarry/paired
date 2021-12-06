@@ -12,7 +12,7 @@ class GFEnv(GFScenicEnv_v2):
   ):
     """Constructor for GFScenicEnv_v2.
     """
-    scenario = buildScenario(initial_scenario_file)
+    self.scenario = buildScenario(initial_scenario_file)
     # print(f"{rank=}, {scenario=}")
     super().__init__(scenario, gf_env_settings, allow_render, rank)
 
