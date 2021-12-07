@@ -176,6 +176,135 @@ class AvoidPassShootAdversarialEnv(AdversarialEnv):
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
+class EasyCrossingAdversarialEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/offense/easy_crossing.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class DefenseGoalKeeperOppoentEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/goalkeeper_vs_opponent.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
+class DefenseTwoVTwoEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/2vs2.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
+class Defense2V2HighPassForwardEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/2vs2_with_scenic_high_pass_forward.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class Defense3V3CrossFromSideEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/3vs3_cross_from_side.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class DefenseDefenderOpponentZigzagEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/defender_vs_opponent_with_zigzag_dribble.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
 
 if hasattr(__loader__, 'name'):
   module_path = __loader__.name
@@ -190,4 +319,34 @@ register.register(
 register.register(
     env_id='gfootball-AvoidPassShootAdversarial-v0',
     entry_point=module_path + ':AvoidPassShootAdversarialEnv',
+)
+
+register.register(
+    env_id='gfootball-EasyCrossing-v0',
+    entry_point=module_path + ':EasyCrossingAdversarialEnv',
+)
+
+register.register(
+    env_id='gfootball-DefenseGoalKeeperOppoent-v0',
+    entry_point=module_path + ':DefenseGoalKeeperOppoentEnv',
+)
+
+register.register(
+    env_id='gfootball-DefenseTwoVTwo-v0',
+    entry_point=module_path + ':DefenseTwoVTwoEnv',
+)
+
+register.register(
+    env_id='gfootball-Defense2V2HighPassForward-v0',
+    entry_point=module_path + ':Defense2V2HighPassForwardEnv',
+)
+
+register.register(
+    env_id='gfootball-Defense3V3CrossFromSide-v0',
+    entry_point=module_path + ':Defense3V3CrossFromSideEnv',
+)
+
+register.register(
+    env_id='gfootball-DefenseDefenderOpponentZigzag-v0',
+    entry_point=module_path + ':DefenseDefenderOpponentZigzagEnv',
 )
