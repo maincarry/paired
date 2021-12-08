@@ -3,7 +3,6 @@ from scenic.simulators.gfootball.utilities.scenic_helper import buildScenario
 
 import torch
 import numpy as np
-from scenic.simulators.gfootball.samplableVarExtraction import *
 
 class GFEnv(GFScenicEnv_v2):
   """Wrapper for GFScenicEnv_v2"""
