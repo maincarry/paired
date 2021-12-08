@@ -26,7 +26,7 @@ import os
 from scenic.core.vectors import Vector
 import math
 from verifai.monitor import specification_monitor, mtl_specification
-
+from scenic.simulators.gfootball.utilities.scenic_helper import buildScenario
 
 class AdversarialEnv(scenicenv.GFEnv):
   """Grid world where an adversary build the environment the agent plays.
@@ -40,16 +40,22 @@ class AdversarialEnv(scenicenv.GFEnv):
     """Initializes environment in which adversary places goal, agent, obstacles.
     """
 
+    self.scenario = buildScenario(initial_scenario_file)
+
     super().__init__(
-      initial_scenario, gf_env_settings, allow_render, rank
+      self.scenario, gf_env_settings, allow_render, rank
     )
     print(f"{rank=}")
 
-    self.step_count = 0
+    # parse samplable parameters
+    self.samplableVars = parseSamplableVars(self.scenario)
+    # parse the ranges of each samplable parameter: self.varRanges = [(low1, high1), (low2, high2), ...]
+    self.varRanges = parseVar(samplableVars)
+    # self.low = [low1, low2, ...], self.high = [high1, high2, ...]
+    self.low, self.high = low_high_ranges(self.varRanges)
 
-    # TODO: Create spaces for adversary agent's specs. For now, we only have 2.
-    self.adversary_action_dim = num_adv_vars
-    self.adversary_action_space = gym.spaces.Discrete(self.adversary_action_dim)
+    self.adversary_action_dim = len(self.samplableVars)
+    self.adversary_action_space = gym.spaces.Box(low=self.low, high=self.high, dtype=np.float32)
     self.adversary_observation_space = gym.spaces.Box(low=0, high=255, shape=(72, 96, 16), dtype='uint8')
 
     # Eddie: instantiate VerifAI with the initial_scenario path
@@ -74,58 +80,56 @@ class AdversarialEnv(scenicenv.GFEnv):
   # this function returns an adv env obs
   def reset(self):
     """Fully resets the environment.
-       Return an obs for adv env agent."""
-    self.step_count = 0
-
-    # Very important, we need obs for adv env! Here I just use agent obs.
-    # obs, self.scene = super().ACL_reset(self.falsifier)
+       Return an obs for adv env agent. This part is done. no need to add 
+       """
     obs = super().reset()
     return obs
 
   def reset_agent(self):
     """Resets the agent's start position, but leaves goal and walls."""
-
-    # Step count since episode start
-    self.step_count = 0
-
-    # Return first observation
-    # obs = super().ACL_resetAgent(self.scene)
     obs = super().reset()
-
     return obs
 
-  # def reset_to_level(self, level):
-  #   self.reset()
-  #   actions = [int(a) for a in level.split()]
-  #   for a in actions:
-  #     obs, _, done, _ = self.step_adversary(a)
-  #     if done:
-  #       return self.reset_agent()
+  def step_adversary(self, action):
+    ''' 
+    action := sampled parameters from the Scenic program
+    step_adversary() function should 
+    (1) scale the agent model outputs (i.e. sampled parameters) to proper ranges
+    (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
+    (3) run reset() to validate whether sampled parameters are valid
+        if valid, done = True, otherwise done = False. 
+    '''
+    assert isinstance(action, np.ndarray)
+    assert len(action) == self.adversary_action_dim
 
-  def step_adversary(self, loc):
-    """The adversary gets n_clutter + 2 moves to place the goal, agent, blocks.
+    # (1) Assuming that the action's elements are all within [0,1]
+    scaled_sampled_params = []
+    for index in range(len(action)):
+      scaled_param = param * (self.high[index] - self.low[index]) + self.low[index]
+      scaled_sampled_params.append(scaled_param)
 
-    The action space is the number of possible squares in the grid. The squares
-    are numbered from left to right, top to bottom.
+    # (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
+    # inputDict:  key = samplable variable objects within 'scenario' object, value = sampled value of the object
+    inputDict = createInputDictionary(self.samplableVars, scaled_sampled_params)
+    # condition the sampled values to corresponding samplable variables in 'scenario' object
+    inputVarToScenario(self.scenario, inputDict)
 
-    Args:
-      loc: An integer specifying the location to place the next object which
-        must be decoded into x, y coordinates.
+    # (3) run reset() to validate whether sampled parameters are valid
+    obs = self.reset()
+    
+    if obs is None:
+      done = False
+    else: 
+      done = True
 
-    Returns:
-      Standard RL observation, reward (always 0), done, and info
-    """
-    obs = self.first_obs
-
-    return obs, 0, True, {}
+    return obs, 0, done, {}
 
   def reset_random(self):
     """
-    Note, this is based on the original PAIRED implementation from 
-    https://github.com/google-research/google-research/blob/master/social_rl/gym_multigrid/envs/adversarial.py,
-    which sets the domain randomization baseline to use n_clutter/2 blocks.
+    uncondition scenario object and then run self.reset()
     """
-    return self.reset_agent()
+    unconditionScenario(self.scenario)
+    return self.reset()
 
   # TODO: required but what is this for???
   @property
@@ -176,6 +180,135 @@ class AvoidPassShootAdversarialEnv(AdversarialEnv):
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
+class EasyCrossingAdversarialEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/offense/easy_crossing.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class DefenseGoalKeeperOppoentEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/goalkeeper_vs_opponent.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
+class DefenseTwoVTwoEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/2vs2.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
+class Defense2V2HighPassForwardEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/2vs2_with_scenic_high_pass_forward.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class Defense3V3CrossFromSideEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/3vs3_cross_from_side.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class DefenseDefenderOpponentZigzagEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/defender_vs_opponent_with_zigzag_dribble.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
 
 if hasattr(__loader__, 'name'):
   module_path = __loader__.name
@@ -190,4 +323,34 @@ register.register(
 register.register(
     env_id='gfootball-AvoidPassShootAdversarial-v0',
     entry_point=module_path + ':AvoidPassShootAdversarialEnv',
+)
+
+register.register(
+    env_id='gfootball-EasyCrossing-v0',
+    entry_point=module_path + ':EasyCrossingAdversarialEnv',
+)
+
+register.register(
+    env_id='gfootball-DefenseGoalKeeperOppoent-v0',
+    entry_point=module_path + ':DefenseGoalKeeperOppoentEnv',
+)
+
+register.register(
+    env_id='gfootball-DefenseTwoVTwo-v0',
+    entry_point=module_path + ':DefenseTwoVTwoEnv',
+)
+
+register.register(
+    env_id='gfootball-Defense2V2HighPassForward-v0',
+    entry_point=module_path + ':Defense2V2HighPassForwardEnv',
+)
+
+register.register(
+    env_id='gfootball-Defense3V3CrossFromSide-v0',
+    entry_point=module_path + ':Defense3V3CrossFromSideEnv',
+)
+
+register.register(
+    env_id='gfootball-DefenseDefenderOpponentZigzag-v0',
+    entry_point=module_path + ':DefenseDefenderOpponentZigzagEnv',
 )
