@@ -12,7 +12,7 @@ class GFEnv(GFScenicEnv_v2):
   ):
     """Constructor for GFScenicEnv_v2.
     """
-    # scenario = buildScenario(initial_scenario_file)
+
     # print(f"{rank=}, {scenario=}")
     super().__init__(scenario, gf_env_settings, allow_render, rank)
 
@@ -24,7 +24,7 @@ class GFEnv(GFScenicEnv_v2):
     # Initialize the state
     self.first_obs = self.reset()
 
-  def step(self, action):
+  def step(self, actions):
     # action = sampled env parameters
     if isinstance(actions, torch.Tensor):
         actions = actions.item()

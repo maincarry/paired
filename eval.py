@@ -382,6 +382,7 @@ if __name__ == '__main__':
             print(f'Evaluating {xpid}')
             meta_json_file = open(meta_json_path)
             xpid_flags = DotDict(json.load(meta_json_file)['args'])
+            print(xpid_flags)
 
             make_fn = [lambda: Evaluator.make_env(env_names[0], 200)]  # hardcode env id = 200
             dummy_venv = ParallelAdversarialVecEnv(make_fn, adversary=False, is_eval=True)
