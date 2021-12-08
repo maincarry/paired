@@ -46,7 +46,7 @@ class AdversarialEnv(scenicenv.GFEnv):
     """Initializes environment in which adversary places goal, agent, obstacles.
     """
 
-    self.scenario = buildScenario(initial_scenario_file)
+    self.scenario = buildScenario(initial_scenario)
 
     super().__init__(
       self.scenario, gf_env_settings, allow_render, rank
@@ -56,12 +56,12 @@ class AdversarialEnv(scenicenv.GFEnv):
     # parse samplable parameters
     self.samplableVars = parseSamplableVars(self.scenario)
     # parse the ranges of each samplable parameter: self.varRanges = [(low1, high1), (low2, high2), ...]
-    self.varRanges = parseVar(samplableVars)
+    self.varRanges = parseVar(self.samplableVars)
     # self.low = [low1, low2, ...], self.high = [high1, high2, ...]
     self.low, self.high = low_high_ranges(self.varRanges)
 
     self.adversary_action_dim = len(self.samplableVars)
-    self.adversary_action_space = gym.spaces.Box(low=self.low, high=self.high, dtype=np.float32)
+    self.adversary_action_space = gym.spaces.Box(low=np.array(self.low), high=np.array(self.high), dtype=np.float32)
     self.adversary_observation_space = gym.spaces.Box(low=0, high=255, shape=(72, 96, 16), dtype='uint8')
 
     # Eddie: instantiate VerifAI with the initial_scenario path
