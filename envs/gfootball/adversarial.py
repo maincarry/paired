@@ -29,6 +29,11 @@ from verifai.monitor import specification_monitor, mtl_specification
 from scenic.simulators.gfootball.utilities.scenic_helper import buildScenario
 from scenic.simulators.gfootball.samplableVarExtraction import *
 
+import gfootball
+from gfootball.env import football_action_set
+from scenic.simulators.gfootball.utilities import scenic_helper
+from scenic.simulators.gfootball.simulator import GFootBallSimulation
+
 class AdversarialEnv(scenicenv.GFEnv):
   """Grid world where an adversary build the environment the agent plays.
 
@@ -41,7 +46,7 @@ class AdversarialEnv(scenicenv.GFEnv):
     """Initializes environment in which adversary places goal, agent, obstacles.
     """
 
-    self.scenario = buildScenario(initial_scenario_file)
+    self.scenario = buildScenario(initial_scenario)
 
     super().__init__(
       self.scenario, gf_env_settings, allow_render, rank
@@ -51,12 +56,12 @@ class AdversarialEnv(scenicenv.GFEnv):
     # parse samplable parameters
     self.samplableVars = parseSamplableVars(self.scenario)
     # parse the ranges of each samplable parameter: self.varRanges = [(low1, high1), (low2, high2), ...]
-    self.varRanges = parseVar(samplableVars)
+    self.varRanges = parseVar(self.samplableVars)
     # self.low = [low1, low2, ...], self.high = [high1, high2, ...]
     self.low, self.high = low_high_ranges(self.varRanges)
 
     self.adversary_action_dim = len(self.samplableVars)
-    self.adversary_action_space = gym.spaces.Box(low=self.low, high=self.high, dtype=np.float32)
+    self.adversary_action_space = gym.spaces.Box(low=np.array(self.low), high=np.array(self.high), dtype=np.float32)
     self.adversary_observation_space = gym.spaces.Box(low=0, high=255, shape=(72, 96, 16), dtype='uint8')
 
     # A flag showing scenario has been constructed.
@@ -112,14 +117,8 @@ class AdversarialEnv(scenicenv.GFEnv):
     assert len(action) == self.adversary_action_dim
     # assert self.last_obs, "last obs must always be valid"
 
-    # if self.finish_building_scene:
-    #   return self.last_obs, 0, True, {}
-
-    # (1) Assuming that the action's elements are all within [-1,1]
-    scaled_sampled_params = []
-    for index, param in enumerate(action):
-      scaled_param = (param + 1) * 0.5 * (self.high[index] - self.low[index]) + self.low[index]
-      scaled_sampled_params.append(scaled_param)
+    # (1) Assuming that the action's elements are all within [0,1]
+    scaled_sampled_params = self.scale_sampled_params(action)
 
     # (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
     # inputDict:  key = samplable variable objects within 'scenario' object, value = sampled value of the object
@@ -128,8 +127,8 @@ class AdversarialEnv(scenicenv.GFEnv):
     inputVarToScenario(self.scenario, inputDict)
 
     # (3) run reset() to validate whether sampled parameters are valid
-    obs = self.reset()
-    self.last_obs = obs
+    info = {}
+    obs = self.check_validity()
     
     if obs is None:
       assert False, f"Encountered Invalid Scene: {action=} {scaled_sampled_params=}"
@@ -138,10 +137,32 @@ class AdversarialEnv(scenicenv.GFEnv):
 
       # append sampled value to the info
       done = False
+      
+      while obs is None:
+          # randomly re-sample parameters again
+          low_bound, high_bound = 0, 1
+          resampled_action = [random.uniform(low_bound, high_bound) for i in range(len(self.varRanges))]
+          scaled_sampled_params = self.scale_sampled_params(resampled_action)
+          inputDict = createInputDictionary(self.samplableVars, scaled_sampled_params)
+          # condition the sampled values to corresponding samplable variables in 'scenario' object
+          inputVarToScenario(self.scenario, inputDict)
+          obs = self.check_validity()
+          if obs is not None:
+            info['resampled_params'] = resampled_action
     else: 
       done = True
 
-    return obs, 0, done, {}
+    return obs, 0, done, info
+
+  def scale_sampled_params(self, action):
+    ''' scale the action elements '''
+    scaled_sampled_params = []
+
+    for index, param in enumerate(action):
+      scaled_param = param * (self.high[index] - self.low[index]) + self.low[index]
+      scaled_sampled_params.append(scaled_param)
+
+    return scaled_sampled_params
 
   def reset_random(self):
     """
@@ -149,6 +170,33 @@ class AdversarialEnv(scenicenv.GFEnv):
     """
     unconditionScenario(self.scenario)
     return self.reset()
+
+  def check_validity(self):
+    try:
+        self.scene, _ = scenic_helper.generateScene(self.scenario, maxIterations=1)
+        if self.scene is None:
+            return None
+
+        if hasattr(self, "simulation"): self.simulation.get_underlying_gym_env().close()
+
+        self.simulation = GFootBallSimulation(scene=self.scene, settings={}, for_gym_env=True,
+                                              render=self.allow_render, verbosity=1,
+                                              env_type="v2",
+                                              gf_env_settings=self.gf_env_settings,
+                                              tag=str(self.rank))
+
+        self.gf_gym_env = self.simulation.get_underlying_gym_env()
+
+        obs = self.simulation.reset()
+        player_idx = self.simulation.get_controlled_player_idx()[0]
+
+        self.simulation.pre_step()
+
+        return obs[player_idx]
+
+    except Exception as e:
+        print("Resample Script. Cause Error: ", e)
+        assert False, e
 
   # TODO: required but what is this for???
   @property
