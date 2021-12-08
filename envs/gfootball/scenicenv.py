@@ -3,7 +3,6 @@ from scenic.simulators.gfootball.utilities.scenic_helper import buildScenario
 
 import torch
 import numpy as np
-from scenic.simulators.gfootball.samplableVarExtraction import *
 
 class GFEnv(GFScenicEnv_v2):
   """Wrapper for GFScenicEnv_v2"""
@@ -25,7 +24,7 @@ class GFEnv(GFScenicEnv_v2):
     # Initialize the state
     self.first_obs = self.reset()
 
-  def step(self, action):
+  def step(self, actions):
     # action = sampled env parameters
     if isinstance(actions, torch.Tensor):
         actions = actions.item()
