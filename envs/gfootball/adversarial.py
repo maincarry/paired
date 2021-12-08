@@ -27,6 +27,7 @@ from scenic.core.vectors import Vector
 import math
 from verifai.monitor import specification_monitor, mtl_specification
 from scenic.simulators.gfootball.utilities.scenic_helper import buildScenario
+from scenic.simulators.gfootball.samplableVarExtraction import *
 
 class AdversarialEnv(scenicenv.GFEnv):
   """Grid world where an adversary build the environment the agent plays.
@@ -58,6 +59,10 @@ class AdversarialEnv(scenicenv.GFEnv):
     self.adversary_action_space = gym.spaces.Box(low=self.low, high=self.high, dtype=np.float32)
     self.adversary_observation_space = gym.spaces.Box(low=0, high=255, shape=(72, 96, 16), dtype='uint8')
 
+    # A flag showing scenario has been constructed.
+    self.finish_building_scene = False
+    self.last_obs = None
+
     # Eddie: instantiate VerifAI with the initial_scenario path
     # sampler = ScenicSampler.fromScenario(initial_scenario)
 
@@ -83,11 +88,13 @@ class AdversarialEnv(scenicenv.GFEnv):
        Return an obs for adv env agent. This part is done. no need to add 
        """
     obs = super().reset()
+    self.last_obs = obs
     return obs
 
   def reset_agent(self):
     """Resets the agent's start position, but leaves goal and walls."""
     obs = super().reset()
+    self.last_obs = obs
     return obs
 
   def step_adversary(self, action):
@@ -98,14 +105,20 @@ class AdversarialEnv(scenicenv.GFEnv):
     (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
     (3) run reset() to validate whether sampled parameters are valid
         if valid, done = True, otherwise done = False. 
+    
+    For now, we must manually make sure sampled parameters are valid.
     '''
     assert isinstance(action, np.ndarray)
     assert len(action) == self.adversary_action_dim
+    # assert self.last_obs, "last obs must always be valid"
 
-    # (1) Assuming that the action's elements are all within [0,1]
+    # if self.finish_building_scene:
+    #   return self.last_obs, 0, True, {}
+
+    # (1) Assuming that the action's elements are all within [-1,1]
     scaled_sampled_params = []
-    for index in range(len(action)):
-      scaled_param = param * (self.high[index] - self.low[index]) + self.low[index]
+    for index, param in enumerate(action):
+      scaled_param = (param + 1) * 0.5 * (self.high[index] - self.low[index]) + self.low[index]
       scaled_sampled_params.append(scaled_param)
 
     # (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
@@ -116,8 +129,14 @@ class AdversarialEnv(scenicenv.GFEnv):
 
     # (3) run reset() to validate whether sampled parameters are valid
     obs = self.reset()
+    self.last_obs = obs
     
     if obs is None:
+      assert False, f"Encountered Invalid Scene: {action=} {scaled_sampled_params=}"
+      # resample randomly
+      # get sampled value
+
+      # append sampled value to the info
       done = False
     else: 
       done = True

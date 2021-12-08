@@ -42,6 +42,10 @@ class AdversarialRunner(object):
         """
         self.args = args
 
+        self.is_gfootball = args.env_name.startswith('gfootball')
+        # TODO remove this
+        print(f"Adv Runner: {self.is_gfootball=}")
+
         self.venv = venv
         if ued_venv is None:
             self.ued_venv = venv

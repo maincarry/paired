@@ -147,7 +147,7 @@ def make_agent(name, env, args, device='cpu'):
         observation_space = env.adversary_observation_space
         action_space = env.adversary_action_space
         if args.env_name.startswith('gfootball'):
-            num_steps = 5  # TODO: change this
+            num_steps = 1  # TODO: change this
         else:
             num_steps = observation_space['time_step'].high[0]
         recurrent_arch = args.recurrent_adversary_env and args.recurrent_arch
