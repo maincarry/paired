@@ -135,7 +135,7 @@ class GFootballAdversaryNetwork(DeviceAwareModule):
 
         # TODO: output a guassian dist with -1,1 bound
         self.dist = SquashedDiagGaussianDistribution(self.action_dim)
-        self.mean_net, self.logstd_net = self.dist.proba_distribution_net(512)
+        self.mean_net, self.logstd = self.dist.proba_distribution_net(512)
         # self.actor = nn.Linear(512, self.action_dim)
 
 
@@ -153,7 +153,7 @@ class GFootballAdversaryNetwork(DeviceAwareModule):
         x = self.cnn_layer(inputs / 255.0)
 
         mean = self.mean_net(x)
-        logstd = self.logstd_net(x)
+        logstd = self.logstd
         normal_dist = self.dist.proba_distribution(mean, logstd)
         if deterministic:
             action = normal_dist.mode()
@@ -175,7 +175,7 @@ class GFootballAdversaryNetwork(DeviceAwareModule):
         x = self.cnn_layer(inputs / 255.0)
 
         mean = self.mean_net(x)
-        logstd = self.logstd_net(x)
+        logstd = self.logstd
         normal_dist = self.dist.proba_distribution(mean, logstd)
         action_log_probs = normal_dist.log_prob(action)
         dist_entropy = -action_log_probs.mean()

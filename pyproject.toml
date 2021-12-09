@@ -7,9 +7,9 @@ authors = ["Edward Kim <ek65@berkeley.edu>"]
 [tool.poetry.dependencies]
 python = "^3.8"
 # scenic = { git = "https://github.com/scenic4RL/scenic4rl.git", branch = "acl" }
-scenic = { path = "/home/ek65/Desktop/scenic4rl", develop = false}
+scenic = { path = "/home/michael/Desktop/projects/scenic4rl", develop = false}
 # verifai = { git = "https://github.com/ek65/VerifAI.git", branch = "main" }
-verifai = { path = "/home/ek65/Desktop/VerifAI", develop = false}
+verifai = { path = "/home/michael/Desktop/projects/VerifAI", develop = false}
 minihack = "^0.1.1"
 cloudpickle = "^1.2.0"
 gym = "0.15.7"

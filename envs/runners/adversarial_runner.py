@@ -43,8 +43,6 @@ class AdversarialRunner(object):
         self.args = args
 
         self.is_gfootball = args.env_name.startswith('gfootball')
-        # TODO remove this
-        print(f"Adv Runner: {self.is_gfootball=}")
 
         self.venv = venv
         if ued_venv is None:
@@ -53,6 +51,7 @@ class AdversarialRunner(object):
             self.ued_venv = ued_venv # Since adv env can have different env wrappers
 
         self.is_discrete_actions = is_discrete_actions(self.venv)
+        print(f"Adv Runner: {self.is_discrete_actions=}")
         self.is_discrete_adversary_env_actions = is_discrete_actions(self.venv, adversary=True)
 
         self.agents = {
@@ -63,7 +62,7 @@ class AdversarialRunner(object):
 
         self.agent_rollout_steps = args.num_steps
         if args.env_name.startswith('gfootball'):
-            self.adversary_env_rollout_steps = 5  # TODO: change this
+            self.adversary_env_rollout_steps = 1
         else:
             self.adversary_env_rollout_steps = self.venv.adversary_observation_space['time_step'].high[0]
 
@@ -231,20 +230,23 @@ class AdversarialRunner(object):
         mean_return = 0
 
         rollout_returns = [[] for _ in range(args.num_processes)]
+        # print(f"Runner: {is_env=}, {num_steps=}")
         for step in range(num_steps):
             if args.render:
                 self.venv.render_to_screen()
             # Sample actions
             with torch.no_grad():
                 obs_id = agent.storage.get_obs(step)
-                fwd_start =time.time()
+                # fwd_start =time.time()
                 value, action, action_log_dist, recurrent_hidden_states = agent.act(
                     obs_id, agent.storage.get_recurrent_hidden_state(step), agent.storage.masks[step])
 
-                if self.is_discrete_actions:
+                if (not self.is_gfootball and self.is_discrete_actions) or (self.is_gfootball and not is_env):
                     action_log_prob = action_log_dist.gather(-1, action.type(torch.int64))
                 else:
+                    # for gfootball, adv env agent has continuous action space 
                     action_log_prob = action_log_dist
+                    # print(f"Runner {action_log_prob=}")
 
             # Observe reward and next obs
             reset_random = self.is_dr
