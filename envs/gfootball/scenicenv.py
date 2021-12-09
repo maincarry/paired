@@ -30,6 +30,7 @@ class GFEnv(GFScenicEnv_v2):
         actions = actions.item()
     obs, rew, done, info = super().step(actions)
 
-      # TODO need to reduce the reward by time
-      # print(rew)
-      # return obs, rew, done, info
+    # TODO need to reduce the reward by time
+
+    
+    return obs, rew, done, info

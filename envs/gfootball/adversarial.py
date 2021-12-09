@@ -31,7 +31,7 @@ from scenic.simulators.gfootball.samplableVarExtraction import *
 
 import gfootball
 from gfootball.env import football_action_set
-from scenic.simulators.gfootball.utilities import scenic_helper
+
 
 class AdversarialEnv(scenicenv.GFEnv):
   """Grid world where an adversary build the environment the agent plays.
@@ -45,7 +45,7 @@ class AdversarialEnv(scenicenv.GFEnv):
     """Initializes environment in which adversary places goal, agent, obstacles.
     """
 
-    self.scenario = buildScenario(initial_scenario_file)
+    self.scenario = buildScenario(initial_scenario)
 
     super().__init__(
       self.scenario, gf_env_settings, allow_render, rank
@@ -55,31 +55,23 @@ class AdversarialEnv(scenicenv.GFEnv):
     # parse samplable parameters
     self.samplableVars = parseSamplableVars(self.scenario)
     # parse the ranges of each samplable parameter: self.varRanges = [(low1, high1), (low2, high2), ...]
-    self.varRanges = parseVar(samplableVars)
+    self.varRanges = parseVar(self.samplableVars)
     # self.low = [low1, low2, ...], self.high = [high1, high2, ...]
     self.low, self.high = low_high_ranges(self.varRanges)
 
-    self.adversary_action_dim = len(self.samplableVars)
-    self.adversary_action_space = gym.spaces.Box(low=self.low, high=self.high, dtype=np.float32)
+    self.adversary_action_dim = len(self.varRanges)
+    self.adversary_action_space = gym.spaces.Box(low=np.array(self.low), high=np.array(self.high), dtype=np.float32)
     self.adversary_observation_space = gym.spaces.Box(low=0, high=255, shape=(72, 96, 16), dtype='uint8')
 
-    # Eddie: instantiate VerifAI with the initial_scenario path
-    # sampler = ScenicSampler.fromScenario(initial_scenario)
+    print("Adv Env sample vars: ", self.samplableVars)
+    print("Adv Env var lows: ", self.low)
+    print("Adv Env var highs: ", self.high)
+    print("Adv Env action space: ", self.adversary_action_space)
 
-    # falsifier_params = DotMap(
-    #     n_iters=5,
-    #     save_error_table=True,
-    #     save_safe_table=True,
-    #     error_table_path='error_table.csv',
-    #     safe_table_path='safe_table.csv'
-    # )
-    # server_options = DotMap(maxSteps=100, verbosity=0)
-    # self.falsifier = generic_falsifier(sampler=sampler,
-    #                           # monitor = MyMonitor(),
-    #                           falsifier_params=falsifier_params,
-    #                           server_class=ScenicServer,
-    #                           server_options=server_options)
-    # self.scene = None
+    # A flag showing scenario has been constructed.
+    self.finish_building_scene = False
+    self.last_obs = None
+
 
 
   # this function returns an adv env obs
@@ -88,11 +80,13 @@ class AdversarialEnv(scenicenv.GFEnv):
        Return an obs for adv env agent. This part is done. no need to add 
        """
     obs = super().reset()
+    self.last_obs = obs
     return obs
 
   def reset_agent(self):
     """Resets the agent's start position, but leaves goal and walls."""
     obs = super().reset()
+    self.last_obs = obs
     return obs
 
   def step_adversary(self, action):
@@ -103,12 +97,16 @@ class AdversarialEnv(scenicenv.GFEnv):
     (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
     (3) run reset() to validate whether sampled parameters are valid
         if valid, done = True, otherwise done = False. 
+    
+    For now, we must manually make sure sampled parameters are valid.
     '''
     assert isinstance(action, np.ndarray)
-    assert len(action) == self.adversary_action_dim
+    assert len(action) == self.adversary_action_dim, f"Action Shape: {action.shape}, Exp: {self.adversary_action_dim}"
+    # assert self.last_obs, "last obs must always be valid"
 
     # (1) Assuming that the action's elements are all within [0,1]
     scaled_sampled_params = self.scale_sampled_params(action)
+    # print(f"Adv Env: Sampled Scene: {action=} {scaled_sampled_params=}")
 
     # (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
     # inputDict:  key = samplable variable objects within 'scenario' object, value = sampled value of the object
@@ -121,19 +119,24 @@ class AdversarialEnv(scenicenv.GFEnv):
     obs = self.check_validity()
     
     if obs is None:
+      print(f"Encountered Invalid Scene: {action=} {scaled_sampled_params=}")
+
+      # append sampled value to the info
       done = False
       
       while obs is None:
           # randomly re-sample parameters again
-          low_bound, high_bound = 0, 1
+          low_bound, high_bound = -1, 1
           resampled_action = [random.uniform(low_bound, high_bound) for i in range(len(self.varRanges))]
           scaled_sampled_params = self.scale_sampled_params(resampled_action)
           inputDict = createInputDictionary(self.samplableVars, scaled_sampled_params)
           # condition the sampled values to corresponding samplable variables in 'scenario' object
           inputVarToScenario(self.scenario, inputDict)
           obs = self.check_validity()
+
           if obs is not None:
             info['resampled_params'] = resampled_action
+            print(f"Remedy: use random params {action=} {scaled_sampled_params=}")
     else: 
       done = True
 
@@ -144,7 +147,7 @@ class AdversarialEnv(scenicenv.GFEnv):
     scaled_sampled_params = []
 
     for index, param in enumerate(action):
-      scaled_param = param * (self.high[index] - self.low[index]) + self.low[index]
+      scaled_param = ((param+1)/2) * (self.high[index] - self.low[index]) + self.low[index]
       scaled_sampled_params.append(scaled_param)
 
     return scaled_sampled_params
@@ -158,7 +161,7 @@ class AdversarialEnv(scenicenv.GFEnv):
 
   def check_validity(self):
     try:
-        self.scene, _ = scenic_helper.generateScene(self.scenario, maxIterations=1)
+        self.scene, _ = self.scenario.generate(maxIterations=1)
         if self.scene is None:
             return None
 
@@ -184,7 +187,6 @@ class AdversarialEnv(scenicenv.GFEnv):
         print("Resample Script. Cause Error: ", e)
         assert False, e
 
-  # TODO: required but what is this for???
   @property
   def processed_action_dim(self):
     return 1
@@ -229,7 +231,7 @@ class AvoidPassShootAdversarialEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/offense/avoid_pass_shoot.scenic"
+    scenario_file = "/home/michael/Desktop/projects/scenic4rl/training/gfrl/_scenarios/offense/avoid_pass_shoot.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -250,7 +252,8 @@ class EasyCrossingAdversarialEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/offense/easy_crossing.scenic"
+    # TODO: change path
+    scenario_file = "/home/michael/Desktop/projects/scenic4rl/training/gfrl/_scenarios/offense/easy_crossing.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 

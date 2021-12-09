@@ -6,11 +6,30 @@ authors = ["Edward Kim <ek65@berkeley.edu>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
-scenic = {path="/home/ek65/Desktop/scenic4rl"}
-verifai = {path="/home/ek65/Desktop/VerifAI"}
 
+# scenic = { git = "https://github.com/scenic4RL/scenic4rl.git", branch = "acl" }
+scenic = { path = "/home/michael/Desktop/projects/scenic4rl", develop = false}
+# verifai = { git = "https://github.com/ek65/VerifAI.git", branch = "main" }
+verifai = { path = "/home/michael/Desktop/projects/VerifAI", develop = false}
 minihack = "^0.1.1"
-gfootball = "^2.10.1"
+cloudpickle = "^1.2.0"
+gym = "0.15.7"
+gym-minigrid = "1.0.1"
+networkx = "2.5"
+numpy = ">=1.16.4"
+pandas = ">=1.0.5"
+torch = "^1.7.0"
+seaborn = "^0.11.2"
+tensorflow = "2.4.1"
+lempel-ziv-complexity = "^0.2.2"
+tqdm = ">=4.46.1"
+gin-config = "0.1.1"
+cma = "2.7.0"
+Box2D = "^2.3.10"
+pyglet = "<=1.5.0"
+Pillow = "^8.4.0"
+baselines = { git = "https://github.com/openai/baselines.git", branch = "master"}
+
 [tool.poetry.dev-dependencies]
 
 [build-system]

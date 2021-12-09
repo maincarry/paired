@@ -81,7 +81,7 @@ class RolloutStorage(object):
             self.action_log_probs = torch.zeros(num_steps, num_processes, len(list(action_space.nvec)))
         else: # Hack it to just store action prob for sampled action if continuous
             action_shape = action_space.shape[0]
-            self.action_log_probs = torch.zeros(num_steps, num_processes, 1)
+            self.action_log_probs = torch.zeros(num_steps, num_processes, action_space.shape[0])
             self.action_log_dist = None
 
         self.actions = torch.zeros(num_steps, num_processes, action_shape)
@@ -168,8 +168,10 @@ class RolloutStorage(object):
             self.recurrent_hidden_states[self.step + 1].copy_(recurrent_hidden_states)
 
         self.actions[self.step].copy_(actions) 
+        # print(f"Storage: {self.action_log_probs[self.step]=}, {action_log_probs=}")
         self.action_log_probs[self.step].copy_(action_log_probs)
-        self.action_log_dist[self.step].copy_(action_log_dist)
+        if self.action_log_dist is not None:
+            self.action_log_dist[self.step].copy_(action_log_dist)
         self.value_preds[self.step].copy_(value_preds)
         self.rewards[self.step].copy_(rewards)
         self.masks[self.step + 1].copy_(masks)
