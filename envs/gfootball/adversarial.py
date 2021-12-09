@@ -45,6 +45,7 @@ class AdversarialEnv(scenicenv.GFEnv):
     """Initializes environment in which adversary places goal, agent, obstacles.
     """
 
+    # breakpoint()
     self.scenario = buildScenario(initial_scenario)
 
     super().__init__(
@@ -81,6 +82,7 @@ class AdversarialEnv(scenicenv.GFEnv):
        """
     obs = super().reset()
     self.last_obs = obs
+    unconditionScenario(self.scenario)
     return obs
 
   def reset_agent(self):
@@ -119,24 +121,30 @@ class AdversarialEnv(scenicenv.GFEnv):
     obs = self.check_validity()
     
     if obs is None:
-      print(f"Encountered Invalid Scene: {action=} {scaled_sampled_params=}")
+      # print(f"Encountered Invalid Scene: {action=} {scaled_sampled_params=}")
 
       # append sampled value to the info
       done = False
       
       while obs is None:
           # randomly re-sample parameters again
+          # print("Resample start.")
+          unconditionScenario(self.scenario)
           low_bound, high_bound = -1, 1
           resampled_action = [random.uniform(low_bound, high_bound) for i in range(len(self.varRanges))]
           scaled_sampled_params = self.scale_sampled_params(resampled_action)
           inputDict = createInputDictionary(self.samplableVars, scaled_sampled_params)
           # condition the sampled values to corresponding samplable variables in 'scenario' object
           inputVarToScenario(self.scenario, inputDict)
+
+          # print(f"{self.rank=} Resample. Now checking validity.")
           obs = self.check_validity()
+          # print(f"{self.rank=} Resample end.")
 
           if obs is not None:
             info['resampled_params'] = resampled_action
-            print(f"Remedy: use random params {action=} {scaled_sampled_params=}")
+            # print(f"{self.rank=} Resampled Parameters.")
+            # print(f"{self.rank=} Remedy: use random params. {action=} {resampled_action=}")
     else: 
       done = True
 

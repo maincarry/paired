@@ -253,6 +253,19 @@ class AdversarialRunner(object):
             _action = agent.process_action(action.cpu())
             if is_env:
                 obs, reward, done, infos = self.ued_venv.step_adversary(_action)
+                # change the action after resampling
+                # infos: num_process dictionary {} or {'resampled_params':[0.1, -0.9, ...]}
+                # _action: tensor: num_process, action_dim
+
+                for i, d in enumerate(infos):
+                    if d:
+                        # print(f"Need to replace invalid _action[{i}] = {_action[i]}")
+                        _action[i].copy_(torch.tensor(d['resampled_params']))
+                        # print(f"Replaced act[{i}]={_action[i]}")
+                
+
+
+
             else:
                 obs, reward, done, infos = self.venv.step_env(_action, reset_random=reset_random)
                 if args.clip_reward:
