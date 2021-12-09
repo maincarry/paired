@@ -318,7 +318,7 @@ class Defense2V2HighPassForwardEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/2vs2_with_scenic_high_pass_forward.scenic"
+    scenario_file = "/home/michael/Desktop/projects/scenic4rl/training/gfrl/_scenarios/defense/2vs2_with_scenic_high_pass_forward.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -339,7 +339,7 @@ class Defense3V3CrossFromSideEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/3vs3_cross_from_side.scenic"
+    scenario_file = "/home/michael/Desktop/projects/scenic4rl/training/gfrl/_scenarios/defense/3vs3_cross_from_side.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
