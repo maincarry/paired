@@ -31,7 +31,6 @@ from scenic.simulators.gfootball.samplableVarExtraction import *
 
 import gfootball
 from gfootball.env import football_action_set
-from scenic.simulators.gfootball.utilities import scenic_helper
 
 
 class AdversarialEnv(scenicenv.GFEnv):
@@ -162,11 +161,12 @@ class AdversarialEnv(scenicenv.GFEnv):
 
   def check_validity(self):
     try:
-        self.scene, _ = scenic_helper.generateScene(self.scenario, maxIterations=1)
+        self.scene, _ = self.scenario.generate(maxIterations=1)
         if self.scene is None:
             return None
 
         if hasattr(self, "simulation"): self.simulation.get_underlying_gym_env().close()
+
         from scenic.simulators.gfootball.simulator import GFootBallSimulation
         self.simulation = GFootBallSimulation(scene=self.scene, settings={}, for_gym_env=True,
                                               render=self.allow_render, verbosity=1,

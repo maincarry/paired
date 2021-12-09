@@ -6,6 +6,7 @@ authors = ["Edward Kim <ek65@berkeley.edu>"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+
 # scenic = { git = "https://github.com/scenic4RL/scenic4rl.git", branch = "acl" }
 scenic = { path = "/home/michael/Desktop/projects/scenic4rl", develop = false}
 # verifai = { git = "https://github.com/ek65/VerifAI.git", branch = "main" }
