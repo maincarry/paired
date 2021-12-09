@@ -32,7 +32,6 @@ from scenic.simulators.gfootball.samplableVarExtraction import *
 import gfootball
 from gfootball.env import football_action_set
 from scenic.simulators.gfootball.utilities import scenic_helper
-from scenic.simulators.gfootball.simulator import GFootBallSimulation
 
 class AdversarialEnv(scenicenv.GFEnv):
   """Grid world where an adversary build the environment the agent plays.
@@ -165,6 +164,7 @@ class AdversarialEnv(scenicenv.GFEnv):
 
         if hasattr(self, "simulation"): self.simulation.get_underlying_gym_env().close()
 
+        from scenic.simulators.gfootball.simulator import GFootBallSimulation
         self.simulation = GFootBallSimulation(scene=self.scene, settings={}, for_gym_env=True,
                                               render=self.allow_render, verbosity=1,
                                               env_type="v2",
