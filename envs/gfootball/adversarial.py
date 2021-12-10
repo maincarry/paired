@@ -193,7 +193,7 @@ class AdversarialEnv(scenicenv.GFEnv):
 
     except Exception as e:
         print("Resample Script. Cause Error: ", e)
-        assert False, e
+        return None
 
   @property
   def processed_action_dim(self):
@@ -217,7 +217,7 @@ class MiniAdversarialEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/grf/pass_n_shoot.scenic"
+    scenario_file = "/home/mark/workplace/gf/scenic4rl/training/gfrl/_scenarios/grf/pass_n_shoot.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -239,7 +239,7 @@ class AvoidPassShootAdversarialEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/michael/Desktop/projects/scenic4rl/training/gfrl/_scenarios/offense/avoid_pass_shoot.scenic"
+    scenario_file = "/home/mark/workplace/gf/scenic4rl/training/gfrl/_scenarios/offense/avoid_pass_shoot.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -261,7 +261,7 @@ class EasyCrossingAdversarialEnv(AdversarialEnv):
         "render": False
     }
     # TODO: change path
-    scenario_file = "/home/michael/Desktop/projects/scenic4rl/training/gfrl/_scenarios/offense/easy_crossing.scenic"
+    scenario_file = "/home/mark/workplace/gf/scenic4rl/training/gfrl/_scenarios/offense/easy_crossing.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -282,7 +282,7 @@ class DefenseGoalKeeperOppoentEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/goalkeeper_vs_opponent.scenic"
+    scenario_file = "/home/mark/workplace/gf/scenic4rl/training/gfrl/_scenarios/defense/goalkeeper_vs_opponent.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -304,7 +304,7 @@ class DefenseTwoVTwoEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/2vs2.scenic"
+    scenario_file = "/home/mark/workplace/gf/scenic4rl/training/gfrl/_scenarios/defense/2vs2.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -326,7 +326,7 @@ class Defense2V2HighPassForwardEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/michael/Desktop/projects/scenic4rl/training/gfrl/_scenarios/defense/2vs2_with_scenic_high_pass_forward.scenic"
+    scenario_file = "/home/mark/workplace/gf/scenic4rl/training/gfrl/_scenarios/defense/2vs2_with_scenic_high_pass_forward.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -347,7 +347,7 @@ class Defense3V3CrossFromSideEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/michael/Desktop/projects/scenic4rl/training/gfrl/_scenarios/defense/3vs3_cross_from_side.scenic"
+    scenario_file = "/home/mark/workplace/gf/scenic4rl/training/gfrl/_scenarios/defense/3vs3_cross_from_side.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
@@ -368,7 +368,7 @@ class DefenseDefenderOpponentZigzagEnv(AdversarialEnv):
         "write_goal_dumps": False,
         "render": False
     }
-    scenario_file = "/home/curriculum_learning/rl/scenic4rl/training/gfrl/_scenarios/defense/defender_vs_opponent_with_zigzag_dribble.scenic"
+    scenario_file = "/home/mark/workplace/gf/scenic4rl/training/gfrl/_scenarios/defense/defender_vs_opponent_with_zigzag_dribble.scenic"
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 

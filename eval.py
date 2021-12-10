@@ -163,11 +163,11 @@ class Evaluator(object):
             env_kwargs = Evaluator._get_default_env_kwargs(env_name)
             env = minihack_gym_make(env_name,
                     **Evaluator._get_default_env_kwargs(env_name))
+        elif is_gfootball:
+            assert isinstance(process_num, int)
+            kwargs['iprocess'] = process_num
+            env = gym_make(env_name, **kwargs)
         else:
-            if is_gfootball:
-                assert isinstance(process_num, int)
-                kwargs['iprocess'] = process_num
-
             env = gym_make(env_name, **kwargs)
 
         return env
@@ -358,6 +358,7 @@ if __name__ == '__main__':
     env_results = defaultdict(list)
 
     env_names = args.env_names.split(',')
+    print(f"{env_names=}")
 
     num_envs = len(env_names)
     if num_envs*args.num_processes > args.max_num_processes:
@@ -384,7 +385,7 @@ if __name__ == '__main__':
             xpid_flags = DotDict(json.load(meta_json_file)['args'])
             print(xpid_flags)
 
-            make_fn = [lambda: Evaluator.make_env(env_names[0], 200)]  # hardcode env id = 200
+            make_fn = [lambda: Evaluator.make_env(env_names[0], 300)]  # hardcode dummy env id = 300
             dummy_venv = ParallelAdversarialVecEnv(make_fn, adversary=False, is_eval=True)
             dummy_venv = Evaluator.wrap_venv(dummy_venv, env_name=env_names[0], device=device)
 
