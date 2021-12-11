@@ -358,7 +358,7 @@ if __name__ == '__main__':
     env_results = defaultdict(list)
 
     env_names = args.env_names.split(',')
-    print(f"{env_names=}")
+    # print(f"Env names: {env_names}")
 
     num_envs = len(env_names)
     if num_envs*args.num_processes > args.max_num_processes:

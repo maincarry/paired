@@ -51,7 +51,6 @@ class AdversarialRunner(object):
             self.ued_venv = ued_venv # Since adv env can have different env wrappers
 
         self.is_discrete_actions = is_discrete_actions(self.venv)
-        print(f"Adv Runner: {self.is_discrete_actions=}")
         self.is_discrete_adversary_env_actions = is_discrete_actions(self.venv, adversary=True)
 
         self.agents = {
