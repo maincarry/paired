@@ -372,7 +372,7 @@ class DefenseDefenderOpponentZigzagEnv(AdversarialEnv):
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
-class Paired1v1TrainEnv(AdversarialEnv):
+class Paired1v1Env(AdversarialEnv):
   def __init__(self, iprocess, **kwargs):
     gf_env_settings = {
         "stacked": True,
@@ -482,8 +482,8 @@ register.register(
 )
 
 register.register(
-    env_id='gfootball-Paired1v1Train-v0',
-    entry_point=module_path + ':Paired1v1TrainEnv',
+    env_id='gfootball-Paired1v1-v0',
+    entry_point=module_path + ':Paired1v1Env',
 )
 
 register.register(
