@@ -9,23 +9,23 @@ param end_episode_on_out_of_play = True
 param end_episode_on_possession_change = True
 
 
-p1_spawn_point = 0 @ 0
-p2_spawn = get_reg_from_edges(50, 60, 35, -35)
+p1_spawn_point = 50 @ 0
+p2_spawn = get_reg_from_edges(70, 80, 20, 30)
 p2_spawn_point = Point on p2_spawn
-require (abs(p2_spawn_point.y) > 20)
-
 p3_spawn_point = p2_spawn_point.x @ -p2_spawn_point.y
 
-ego = LeftGK
+# free blocking opponent
+o1_spawn_point = Point on get_reg_from_edges(65, 80, -40, 40)
+# require (abs(o1_spawn_point.y) > 20)
+# GK front blocker
+o2_spawn_point = 70 @ 0
+
+
+ego = LeftGK at -98 @ 0
 
 p1 = LeftPlayer with role "CM", at p1_spawn_point
 p2 = LeftPlayer with role "CF", at p2_spawn_point
 p3 = LeftPlayer with role "CF", at p3_spawn_point
-
-# front blocker
-o2_spawn_point = 50 @ 0
-# p2 blocker
-o1_spawn_point = Point right of p2 by 2
 
 o1 = RightCB at o1_spawn_point
 o2 = RightGK at o2_spawn_point

@@ -435,6 +435,37 @@ class Paired1v1Test1Env(AdversarialEnv):
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
+paired_gf_env_settings = {
+    "stacked": True,
+    "rewards": "scoring",
+    "representation": 'extracted',
+    "players": [f"agent:left_players=1"],
+    "real_time": False,
+    "action_set": "default",
+    "dump_full_episodes": False,
+    "dump_scores": False,
+    "write_video": False,
+    "tracesdir": "dummy",
+    "write_full_episode_dumps": False,
+    "write_goal_dumps": False,
+    "render": False
+}
+class PairedChoosePassingEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/choose_passing.scenic"
+    super().__init__(scenario_file, paired_gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class PairedChoosePassingTest0Env(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/choose_passing_test0.scenic"
+    super().__init__(scenario_file, paired_gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class PairedChoosePassingTest1Env(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/choose_passing_test1.scenic"
+    super().__init__(scenario_file, paired_gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
 
 if hasattr(__loader__, 'name'):
   module_path = __loader__.name
@@ -496,6 +527,20 @@ register.register(
     entry_point=module_path + ':Paired1v1Test1Env',
 )
 
+register.register(
+    env_id='gfootball-PairedChoosePassing-v0',
+    entry_point=module_path + ':PairedChoosePassingEnv',
+)
+
+register.register(
+    env_id='gfootball-PairedChoosePassingTest0-v0',
+    entry_point=module_path + ':PairedChoosePassingTest0Env',
+)
+
+register.register(
+    env_id='gfootball-PairedChoosePassingTest1-v0',
+    entry_point=module_path + ':PairedChoosePassingTest1Env',
+)
 
 
 
