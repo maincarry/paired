@@ -9,7 +9,7 @@ param end_episode_on_out_of_play = True
 param end_episode_on_possession_change = True
 
 p1_spawn_point = 20 @ 30
-o0_spawn_point = 80 @ 10
+o0_spawn_point = 80 @ -20
 
 ego = LeftGK
 p1 = LeftPlayer with role "CM", at p1_spawn_point
