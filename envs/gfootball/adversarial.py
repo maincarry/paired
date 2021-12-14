@@ -435,6 +435,51 @@ class Paired1v1Test1Env(AdversarialEnv):
 
     super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
+class Paired1v1Test2Env(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/1v1_test2.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
+class Paired1v1FreeEnv(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    gf_env_settings = {
+        "stacked": True,
+        "rewards": "scoring",
+        "representation": 'extracted',
+        "players": [f"agent:left_players=1"],
+        "real_time": False,
+        "action_set": "default",
+        "dump_full_episodes": False,
+        "dump_scores": False,
+        "write_video": False,
+        "tracesdir": "dummy",
+        "write_full_episode_dumps": False,
+        "write_goal_dumps": False,
+        "render": False
+    }
+    scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/1v1_free.scenic"
+
+    super().__init__(scenario_file, gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+
+
 paired_gf_env_settings = {
     "stacked": True,
     "rewards": "scoring",
@@ -530,6 +575,16 @@ register.register(
 register.register(
     env_id='gfootball-Paired1v1Test1-v0',
     entry_point=module_path + ':Paired1v1Test1Env',
+)
+
+register.register(
+    env_id='gfootball-Paired1v1Test2-v0',
+    entry_point=module_path + ':Paired1v1Test2Env',
+)
+
+register.register(
+    env_id='gfootball-Paired1v1Free-v0',
+    entry_point=module_path + ':Paired1v1FreeEnv',
 )
 
 register.register(
