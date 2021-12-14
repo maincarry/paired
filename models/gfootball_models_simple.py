@@ -61,8 +61,6 @@ class GFootballNetwork(DeviceAwareModule):
         self.critic = nn.Linear(512, 1)
         self.actor = nn.Linear(512, action_space.n)
 
-
-
         # init the linear layer..
         nn.init.orthogonal_(self.critic.weight.data)
         nn.init.constant_(self.critic.bias.data, 0)
@@ -117,34 +115,27 @@ class GFootballNetwork(DeviceAwareModule):
     #     return value, pi
 
 
-
+# Discrete version
 class GFootballAdversaryNetwork(DeviceAwareModule):
     def __init__(self, observation_space, action_space):
         super().__init__()
-        print("For ADV: Using SIMPLE version of GF Model.")
+        print("Using SIMPLE version of GF Model.")
         self.device_name = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
-        print("Adv Network device: ", self.device_name)
+        print("device: ", self.device_name)
         self.recurrent_hidden_state_size = 1  # required but not used
 
-        # scenic vars
-        self.action_dim = action_space.shape[0] # number of sampleable variables
-
         # network
+
         self.cnn_layer = deepmind()
         self.critic = nn.Linear(512, 1)
-
-        # TODO: output a guassian dist with -1,1 bound
-        self.dist = SquashedDiagGaussianDistribution(self.action_dim)
-        self.mean_net, self.logstd = self.dist.proba_distribution_net(512)
-        # self.actor = nn.Linear(512, self.action_dim)
-
+        self.actor = nn.Linear(512, action_space.n)
 
         # init the linear layer..
         nn.init.orthogonal_(self.critic.weight.data)
         nn.init.constant_(self.critic.bias.data, 0)
-        # # init the policy layer...
-        # nn.init.orthogonal_(self.actor.weight.data, gain=0.01)
-        # nn.init.constant_(self.actor.bias.data, 0)
+        # init the policy layer...
+        nn.init.orthogonal_(self.actor.weight.data, gain=0.01)
+        nn.init.constant_(self.actor.bias.data, 0)
 
     def forward(self, inputs, rnn_hxs, masks):
         raise NotImplementedError
@@ -152,15 +143,14 @@ class GFootballAdversaryNetwork(DeviceAwareModule):
     def act(self, inputs, rnn_hxs, masks, deterministic=False):
         x = self.cnn_layer(inputs / 255.0)
 
-        mean = self.mean_net(x)
-        logstd = self.logstd
-        normal_dist = self.dist.proba_distribution(mean, logstd)
+        logits = self.actor(x)
+        dist = FixedCategorical(logits=logits)
         if deterministic:
-            action = normal_dist.mode()
+            action = dist.mode()
         else:
-            action = normal_dist.sample()
-        
-        action_log_dist = mean # logits, in continuous case we should not need it
+            action = dist.sample()
+
+        action_log_dist = dist.logits
 
         value = self.critic(x)
 
@@ -174,12 +164,10 @@ class GFootballAdversaryNetwork(DeviceAwareModule):
 
         x = self.cnn_layer(inputs / 255.0)
 
-        mean = self.mean_net(x)
-        logstd = self.logstd
-        normal_dist = self.dist.proba_distribution(mean, logstd)
-        action_log_probs = normal_dist.log_prob(action)
-        dist_entropy = -action_log_probs.mean()
-
+        logits = self.actor(x)
+        dist = FixedCategorical(logits=logits)
+        action_log_probs = dist.log_probs(action)
+        dist_entropy = dist.entropy().mean()
 
         value = self.critic(x)
         return value, action_log_probs, dist_entropy, rnn_hxs
@@ -187,9 +175,3 @@ class GFootballAdversaryNetwork(DeviceAwareModule):
     @property
     def is_recurrent(self):
         return False
-
-    # def forward(self, inputs):
-    #     x = self.cnn_layer(inputs / 255.0)
-    #     value = self.critic(x)
-    #     pi = F.softmax(self.actor(x), dim=1)
-    #     return value, pi

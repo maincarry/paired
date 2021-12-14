@@ -1,0 +1,85 @@
+nohup: ignoring input
+2021-12-14 06:31:29.163150: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+Found log directory: /home/qcwu/logs/paired/ued-Gfootball-test-paired-scenarioComposition-v0
+Symlinked log directory: /home/qcwu/logs/paired/latest
+Saving arguments to /home/qcwu/logs/paired/ued-Gfootball-test-paired-scenarioComposition-v0/meta.json
+Path to meta file already exists. Not overriding meta.
+Saving messages to /home/qcwu/logs/paired/ued-Gfootball-test-paired-scenarioComposition-v0/out.log
+Path to message file already exists. New data will be appended.
+Saving logs data to /home/qcwu/logs/paired/ued-Gfootball-test-paired-scenarioComposition-v0/logs.csv
+Saving logs' fields to /home/qcwu/logs/paired/ued-Gfootball-test-paired-scenarioComposition-v0/fields.csv
+Path to log file already exists. New data will be appended.
+Using CUDA
+
+2021-12-14 06:31:34.640810: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.666719: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.677829: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.681163: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.711358: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.761636: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.773487: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.773697: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.784569: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.815370: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.815416: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.837334: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.846750: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.846944: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.900605: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:34.934928: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+Using SIMPLE version of GF Model.
+device:  cuda:0
+Using SIMPLE version of GF Model.
+device:  cuda:0
+Using SIMPLE version of GF Model.
+device:  cuda:0
+2021-12-14 06:31:45.344484: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:45.344482: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:45.363290: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+2021-12-14 06:31:45.405268: I tensorflow/stream_executor/platform/default/dso_loader.cc:49] Successfully opened dynamic library libcudart.so.11.0
+----------------------------------------------
+| _tick                          | 13        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 36.7      |
+| adversary_dist_entropy         | 2.94      |
+| adversary_env_dist_entropy     | 1.1       |
+| adversary_env_pg_loss          | -0.000322 |
+| adversary_env_value_loss       | 0.0302    |
+| adversary_pg_loss              | -0.000206 |
+| adversary_value_loss           | 0.00611   |
+| agent_action_complexity        | 37        |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -0.000354 |
+| agent_value_loss               | 9.41e-05  |
+| mean_adversary_agent_return    | 0         |
+| mean_agent_return              | 0         |
+| mean_env_return                | 0.0625    |
+| solved_rate:gfootball-scena... | 0         |
+| sps                            | 105       |
+| steps                          | 2.05e+03  |
+| test_returns:gfootball-scen... | 0         |
+| total_episodes                 | 35        |
+----------------------------------------------
+----------------------------------------------
+| _tick                          | 14        |
+| _time                          | 1.64e+09  |
+| adversary_action_complexity    | 37.1      |
+| adversary_dist_entropy         | 2.94      |
+| adversary_env_dist_entropy     | 1.1       |
+| adversary_env_pg_loss          | -7.39e-05 |
+| adversary_env_value_loss       | 0.0279    |
+| adversary_pg_loss              | -0.00084  |
+| adversary_value_loss           | 0.0022    |
+| agent_action_complexity        | 38.7      |
+| agent_dist_entropy             | 2.94      |
+| agent_pg_loss                  | -0.000681 |
+| agent_value_loss               | 0.00373   |
+| mean_adversary_agent_return    | 0.1       |
+| mean_agent_return              | 0.1       |
+| mean_env_return                | 0.0625    |
+| solved_rate:gfootball-scena... | None      |
+| sps                            | 151       |
+| steps                          | 2.25e+04  |
+| test_returns:gfootball-scen... | None      |
+| total_episodes                 | 367       |
+----------------------------------------------

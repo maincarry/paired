@@ -22,7 +22,7 @@ class GFEnv(GFScenicEnv_v2):
     # self.low, self.high = low_high_ranges(self.varRanges)
 
     # Initialize the state
-    self.first_obs = self.reset()
+    # self.first_obs = self.reset()
 
   def step(self, actions):
     # action = sampled env parameters

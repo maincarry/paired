@@ -47,154 +47,88 @@ class AdversarialEnv(scenicenv.GFEnv):
 
     # breakpoint()
     self.scenario = buildScenario(initial_scenario)
+    self.scenario0 = buildScenario("/home/qcwu/gf/scenic4rl/training/gfrl/_scenarios/offense/test_away_away.scenic")
+    self.scenario1 = buildScenario("/home/qcwu/gf/scenic4rl/training/gfrl/_scenarios/offense/test_ret_away.scenic")
+    self.scenario2 = buildScenario("/home/qcwu/gf/scenic4rl/training/gfrl/_scenarios/offense/test_ret_ret.scenic")
 
     super().__init__(
       self.scenario, gf_env_settings, allow_render, rank
     )
-    print(f"Rank: {rank}")
 
-    # parse samplable parameters
-    self.samplableVars = parseSamplableVars(self.scenario)
-    # parse the ranges of each samplable parameter: self.varRanges = [(low1, high1), (low2, high2), ...]
-    self.varRanges = parseVar(self.samplableVars)
-    # self.low = [low1, low2, ...], self.high = [high1, high2, ...]
-    self.low, self.high = low_high_ranges(self.varRanges)
+    self.gf_env_settings = gf_env_settings
+    self.allow_render = allow_render
+    self.rank = rank
+    self.num_adv_vars = 3
 
-    self.adversary_action_dim = len(self.varRanges)
-    self.adversary_action_space = gym.spaces.Box(low=np.array(self.low), high=np.array(self.high), dtype=np.float32)
+    # TODO: Create spaces for adversary agent's specs. For now, we only have 2.
+    self.adversary_action_dim = self.num_adv_vars
+    self.adversary_action_space = gym.spaces.Discrete(self.adversary_action_dim)
     self.adversary_observation_space = gym.spaces.Box(low=0, high=255, shape=(72, 96, 16), dtype='uint8')
 
-    print("Adv Env sample vars: ", self.samplableVars)
-    print("Adv Env var lows: ", self.low)
-    print("Adv Env var highs: ", self.high)
-    print("Adv Env action space: ", self.adversary_action_space)
-
-    # A flag showing scenario has been constructed.
-    self.finish_building_scene = False
-    self.last_obs = None
-
-
-
-  # this function returns an adv env obs
   def reset(self):
     """Fully resets the environment.
-       Return an obs for adv env agent. This part is done. no need to add 
-       """
+       Return an obs for adv env agent."""
+    self.step_count = 0
+
+    # Very important, we need obs for adv env! Here I just use agent obs.
+    # obs, self.scene = super().ACL_reset(self.falsifier)
     obs = super().reset()
-    self.last_obs = obs
-    unconditionScenario(self.scenario)
     return obs
 
   def reset_agent(self):
     """Resets the agent's start position, but leaves goal and walls."""
+
+    # Step count since episode start
+    self.step_count = 0
+
+    # Return first observation
+    # obs = super().ACL_resetAgent(self.scene)
     obs = super().reset()
-    self.last_obs = obs
+
     return obs
 
+  # def reset_to_level(self, level):
+  #   self.reset()
+  #   actions = [int(a) for a in level.split()]
+  #   for a in actions:
+  #     obs, _, done, _ = self.step_adversary(a)
+  #     if done:
+  #       return self.reset_agent()
+
   def step_adversary(self, action):
-    ''' 
-    action := sampled parameters from the Scenic program
-    step_adversary() function should 
-    (1) scale the agent model outputs (i.e. sampled parameters) to proper ranges
-    (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
-    (3) run reset() to validate whether sampled parameters are valid
-        if valid, done = True, otherwise done = False. 
-    
-    For now, we must manually make sure sampled parameters are valid.
-    '''
-    assert isinstance(action, np.ndarray)
-    assert len(action) == self.adversary_action_dim, f"Action Shape: {action.shape}, Exp: {self.adversary_action_dim}"
-    # assert self.last_obs, "last obs must always be valid"
+    scenario_name= ""
+    if action == 0:
+      # initial_scenario = "/home/qcwu/gf/scenic4rl/training/gfrl/_scenarios/offense/test_away_away.scenic"
+      self.scenario = self.scenario0
+      # scenario_name = "test_away_away"
+    elif action == 1:
+      # initial_scenario = "/home/qcwu/gf/scenic4rl/training/gfrl/_scenarios/offense/test_ret_away.scenic"
+      self.scenario = self.scenario1
+      # scenario_name = "test_ret_away"
+    else:
+      # initial_scenario = "/home/qcwu/gf/scenic4rl/training/gfrl/_scenarios/offense/test_ret_ret.scenic"
+      self.scenario = self.scenario2
+      # scenario_name = "test_ret_ret"
 
-    # (1) Assuming that the action's elements are all within [0,1]
-    scaled_sampled_params = self.scale_sampled_params(action)
-    # print(f"Adv Env: Sampled Scene: {action=} {scaled_sampled_params=}")
+    # print("scenario_name: ", scenario_name)
+    # self.scenario = buildScenario(initial_scenario)
+    super().__init__(
+      self.scenario, self.gf_env_settings, self.allow_render, self.rank
+    )
 
-    # (2) input the sampled parameters to the scenic program by "conditioning" samplable variables in scenario object
-    # inputDict:  key = samplable variable objects within 'scenario' object, value = sampled value of the object
-    inputDict = createInputDictionary(self.samplableVars, scaled_sampled_params)
-    # condition the sampled values to corresponding samplable variables in 'scenario' object
-    inputVarToScenario(self.scenario, inputDict)
-
-    # (3) run reset() to validate whether sampled parameters are valid
-    info = {}
-    obs = self.check_validity()
-    
-    if obs is None:
-      # print(f"Encountered Invalid Scene: {action=} {scaled_sampled_params=}")
-
-      # append sampled value to the info
-      done = False
-      
-      while obs is None:
-          # randomly re-sample parameters again
-          # print("Resample start.")
-          unconditionScenario(self.scenario)
-          low_bound, high_bound = -1, 1
-          resampled_action = [random.uniform(low_bound, high_bound) for i in range(len(self.varRanges))]
-          scaled_sampled_params = self.scale_sampled_params(resampled_action)
-          inputDict = createInputDictionary(self.samplableVars, scaled_sampled_params)
-          # condition the sampled values to corresponding samplable variables in 'scenario' object
-          inputVarToScenario(self.scenario, inputDict)
-
-          # print(f"{self.rank=} Resample. Now checking validity.")
-          obs = self.check_validity()
-          # print(f"{self.rank=} Resample end.")
-
-          if obs is not None:
-            info['resampled_params'] = resampled_action
-            # print(f"{self.rank=} Resampled Parameters.")
-            # print(f"{self.rank=} Remedy: use random params. {action=} {resampled_action=}")
-    else: 
-      done = True
-
-    return obs, 0, done, info
-
-  def scale_sampled_params(self, action):
-    ''' scale the action elements '''
-    scaled_sampled_params = []
-
-    for index, param in enumerate(action):
-      scaled_param = ((param+1)/2) * (self.high[index] - self.low[index]) + self.low[index]
-      scaled_sampled_params.append(scaled_param)
-
-    return scaled_sampled_params
+    obs = self.reset()
+    # obs = self.first_obs
+    return obs, 0, True, {}
 
   def reset_random(self):
     """
-    uncondition scenario object and then run self.reset()
+    Note, this is based on the original PAIRED implementation from 
+    https://github.com/google-research/google-research/blob/master/social_rl/gym_multigrid/envs/adversarial.py,
+    which sets the domain randomization baseline to use n_clutter/2 blocks.
     """
-    unconditionScenario(self.scenario)
-    return self.reset()
+    return self.reset_agent()
 
-  def check_validity(self):
-    try:
-        self.scene, _ = self.scenario.generate(maxIterations=1)
-        if self.scene is None:
-            return None
-
-        if hasattr(self, "simulation"): self.simulation.get_underlying_gym_env().close()
-
-        from scenic.simulators.gfootball.simulator import GFootBallSimulation
-        self.simulation = GFootBallSimulation(scene=self.scene, settings={}, for_gym_env=True,
-                                              render=self.allow_render, verbosity=1,
-                                              env_type="v2",
-                                              gf_env_settings=self.gf_env_settings,
-                                              tag=str(self.rank))
-
-        self.gf_gym_env = self.simulation.get_underlying_gym_env()
-
-        obs = self.simulation.reset()
-        player_idx = self.simulation.get_controlled_player_idx()[0]
-
-        self.simulation.pre_step()
-
-        return obs[player_idx]
-
-    except Exception as e:
-        print("Resample Script. Cause Error: ", e)
-        return None
-
+  # TODO: required but what is this for???
   @property
   def processed_action_dim(self):
     return 1
@@ -465,12 +399,22 @@ class PairedChoosePassingTest1Env(AdversarialEnv):
     scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/choose_passing_test1.scenic"
     super().__init__(scenario_file, paired_gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
+class ScenarioComposition(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    scenario_file = "/home/qcwu/gf/scenic4rl/training/gfrl/_scenarios/offense/test_away_away.scenic"
+    super().__init__(scenario_file, paired_gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
 
 
 if hasattr(__loader__, 'name'):
   module_path = __loader__.name
 elif hasattr(__loader__, 'fullname'):
   module_path = __loader__.fullname
+
+register.register(
+    env_id='gfootball-scenarioComposition-v0',
+    entry_point=module_path + ':ScenarioComposition',
+)
 
 register.register(
     env_id='gfootball-MiniAdversarial-v0',

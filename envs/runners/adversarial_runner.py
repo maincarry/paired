@@ -240,7 +240,8 @@ class AdversarialRunner(object):
                 value, action, action_log_dist, recurrent_hidden_states = agent.act(
                     obs_id, agent.storage.get_recurrent_hidden_state(step), agent.storage.masks[step])
 
-                if (not self.is_gfootball and self.is_discrete_actions) or (self.is_gfootball and not is_env):
+                # if (not self.is_gfootball and self.is_discrete_actions) or (self.is_gfootball and not is_env):
+                if self.is_discrete_actions:
                     action_log_prob = action_log_dist.gather(-1, action.type(torch.int64))
                 else:
                     # for gfootball, adv env agent has continuous action space 
