@@ -525,6 +525,15 @@ class Paired3v2Test1Env(AdversarialEnv):
     scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/3v2_test1.scenic"
     super().__init__(scenario_file, paired_gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
+class Paired3v2Test2Env(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/3v2_test2.scenic"
+    super().__init__(scenario_file, paired_gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
+
+class Paired3v2Test3Env(AdversarialEnv):
+  def __init__(self, iprocess, **kwargs):
+    scenario_file = "/home/qcwu/gf/paired/scenic_scenarios/3v2_test3.scenic"
+    super().__init__(scenario_file, paired_gf_env_settings, allow_render = False, rank=iprocess, num_adv_vars = 2)
 
 
 if hasattr(__loader__, 'name'):
@@ -627,4 +636,12 @@ register.register(
     entry_point=module_path + ':Paired3v2Test1Env',
 )
 
+register.register(
+    env_id='gfootball-Paired3v2Test2-v0',
+    entry_point=module_path + ':Paired3v2Test2Env',
+)
 
+register.register(
+    env_id='gfootball-Paired3v2Test3-v0',
+    entry_point=module_path + ':Paired3v2Test3Env',
+)
