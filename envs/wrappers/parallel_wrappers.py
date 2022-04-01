@@ -472,6 +472,21 @@ class ParallelAdversarialVecEnv(SubprocVecEnv):
 
     def get_goal_pos(self):
         return self.remote_attr('goal_pos', flatten=True)
+    
+    # === gFootball-specific === 
+    def get_env_params(self):
+        self._assert_not_closed()
+        for remote in self.remotes:
+            remote.send(('get_sampled_params', None))
+        params = [remote.recv() for remote in self.remotes]
+        params = _flatten_list(params)
+        return params
+
+    def get_env_params_name(self):
+        self._assert_not_closed()
+        self.remotes[0].send(('get_sampled_var_names', None))
+        names = self.remotes[0].recv()
+        return names[0]
 
     def __getattr__(self, name):
         if name == 'observation_space':

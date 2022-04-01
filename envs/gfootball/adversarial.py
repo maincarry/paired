@@ -13,6 +13,8 @@ import random
 
 import gym
 import numpy as np
+from scenic.core.distributions import Range
+from scenic.core.regions import PointInRegionDistribution, RectangularRegion
 import torch
 
 from . import scenicenv
@@ -72,6 +74,9 @@ class AdversarialEnv(scenicenv.GFEnv):
     # A flag showing scenario has been constructed.
     self.finish_building_scene = False
     self.last_obs = None
+
+    # for screenshot
+    self.last_env_params = None
 
 
 
@@ -147,6 +152,8 @@ class AdversarialEnv(scenicenv.GFEnv):
             # print(f"{self.rank=} Remedy: use random params. {action=} {resampled_action=}")
     else: 
       done = True
+      # for screenshot, only include valid action
+      self.last_env_params = scaled_sampled_params
 
     return obs, 0, done, info
 
@@ -198,6 +205,29 @@ class AdversarialEnv(scenicenv.GFEnv):
   @property
   def processed_action_dim(self):
     return 1
+
+  def get_sampled_params(self):
+    """
+    To be called during screenshot. Would return previous scaled sampled parameter.
+    Will return None if there is no valid params yet.
+    """
+    return self.last_env_params
+  
+  def get_sampled_var_names(self):
+    """
+    To be called during screenshot. Would return a list of sampled parameter names.
+    """
+    assert self.samplableVars is not None, "Call Env Init First."
+    res = []
+    for var in self.samplableVars:
+      if isinstance(var, Range):
+        res.append(str(var))
+      elif isinstance(var, PointInRegionDistribution) and isinstance(var.region, RectangularRegion):
+        res.append(f"{var}_x")
+        res.append(f"{var}_y")
+      else:
+        pass
+    return res
 
 
 class MiniAdversarialEnv(AdversarialEnv):

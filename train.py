@@ -1,3 +1,4 @@
+import csv
 import sys
 import os
 import time
@@ -172,23 +173,41 @@ if __name__ == '__main__':
             last_checkpoint_time = timer()
             logging.info(f"\nSaved checkpoint after update {j + 1}")
 
-        # TODO process screenshot for gfootball
-        if save_screenshot and not args.env_name.startswith('gfootball'):
-            venv.reset_agent()
-            images = venv.get_images()
-            plt.axis('off')
-            plt.imshow(images[0])
-            plt.savefig(os.path.join(screenshot_dir, f'update_{j}.png'), bbox_inches='tight')
-            plt.close()
+        # process screenshot for gfootball get_sampled_params
+        if save_screenshot:
+            if args.env_name.startswith('gfootball'):
+                # gfootball handling. We write valid sampled parameters to a csv instead.
+                csv_file_name = os.path.join(screenshot_dir, f'envParams_{args.env_name[10:]}.csv')
+                fields = ['n'] + venv.get_env_params_name()
+                cur_params = venv.get_env_params()
+                cur_params = [[j] + ps for ps in venv.get_env_params() if ps]
 
-            if args.env_name.startswith('MiniHack'):
-                # ASCII obs
-                with open(os.path.join(screenshot_dir, f'update_{j}.txt'), 'w+') as fout:
-                    fout.write(venv.get_grid_str())
+                print(fields)
+                print(cur_params)
 
-                # des file
-                with open(os.path.join(screenshot_dir, f'update_{j}.des'), 'w+') as fout:
-                    fout.write(venv.get_des_file())
+                if cur_params:
+                    with open(csv_file_name, 'a', newline='') as csvfile:
+                        w = csv.writer(csvfile)
+                        if csvfile.tell() == 0:
+                            w.writerow(fields)
+                        w.writerows(cur_params)
+
+            else:
+                venv.reset_agent()
+                images = venv.get_images()
+                plt.axis('off')
+                plt.imshow(images[0])
+                plt.savefig(os.path.join(screenshot_dir, f'update_{j}.png'), bbox_inches='tight')
+                plt.close()
+
+                if args.env_name.startswith('MiniHack'):
+                    # ASCII obs
+                    with open(os.path.join(screenshot_dir, f'update_{j}.txt'), 'w+') as fout:
+                        fout.write(venv.get_grid_str())
+
+                    # des file
+                    with open(os.path.join(screenshot_dir, f'update_{j}.des'), 'w+') as fout:
+                        fout.write(venv.get_des_file())
 
     evaluator.close()
     venv.close()
